@@ -1,6 +1,8 @@
 # Getting Started
 
-Install dependencies,
+Create a `.env` file and add variables (NOT IMPLEMENTED YET)
+
+Open a terminal and install npm dependencies,
 
 ```bash
 npm i
