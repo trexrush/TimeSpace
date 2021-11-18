@@ -1,11 +1,59 @@
 import { styled } from '@mui/system'
+import { useState, useEffect } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.sass'
-import data from '../components/data'
+// import data from '../components/data'
+import axios from 'axios'
+import useAxios from 'axios-hooks'
+import { SliderValueLabelUnstyled } from '@mui/base'
+import { integerPropType } from '@mui/utils'
+
+interface IEvent {
+  event?: string,
+  wca: boolean,
+  single?: string | number,
+  values: string[] | number[]
+}
 
 const Home: NextPage = () => {
+  let [data, setData] = useState<IEvent>({
+    event: "",
+    wca: false,
+    single: "",
+    values: Array(6).fill(0)
+  })
+
+  useEffect(() => {
+    const fetchData = async () => {
+        const result = await axios('https://firestore.googleapis.com/v1/projects/pb-tracker-af3ef/databases/(default)/documents/Event/3x3',)
+        let res = result.data.fields
+
+        let times: string[] | number[] = data.values
+        for (let i: number = 0; i < 6; i++) {
+          times[i] = (Object.values(res.times.arrayValue.values[i])[0])
+        }
+
+        setData({
+          ...data,
+          event: res.name.stringValue,
+          wca: res.wca.booleanValue,
+          single: Object.values(res.single)[0],
+          values: times
+        })
+    }
+    fetchData()
+    console.log(data)
+  }, [])
+
+  // const [{ data, loading, error }, refetch] = useAxios(
+  //   'https://firestore.googleapis.com/v1/projects/pb-tracker-af3ef/databases/(default)/documents/Event/3x3'
+  // )
+
+  // if (loading) return <div>Loading</div>
+  // if (error) return <div>Error</div>
+
   return (
     <div className={styles.container}>
       <Head>
@@ -16,52 +64,47 @@ const Home: NextPage = () => {
       
       <main className={styles.main}>
         <h1 className={styles.title}>
-          <a>{data.documents[0].fields.single.stringValue}</a>
+          <a>{data.event}</a>
         </h1>
 
         <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.tsx</code>
+          <code>{data.wca ? "WCA event" : "Non WCA event"}</code>
         </p>
 
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
+          <a href="/" className={styles.card}>
+            <h2>SINGLE</h2>
+            <p>{data.single}</p>
           </a>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
+          <a href="/" className={styles.card}>
+            <h2>Average of 5</h2>
+            <p>{data.values[1]}</p>
           </a>
 
           <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+            href="/"
             className={styles.card}
           >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
+            <h2>Average of 12</h2>
+            <p>{data.values[2]}</p>
+          </a>
+
+          <a href="/" className={styles.card}>
+            <h2>Average of 50</h2>
+            <p>{data.values[4]}</p>
+          </a>
+
+          <a href="/" className={styles.card}>
+            <h2>Average of 100</h2>
+            <p>{data.values[5]}</p>
           </a>
         </div>
       </main>
 
       <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
+        <a href="/">
+          Powered{' '}
           <span className={styles.logo}>
             <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
           </span>
