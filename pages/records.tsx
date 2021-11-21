@@ -6,6 +6,7 @@ import styles from '../styles/Home.module.sass'
 
 interface IEvent {
     event: String,
+    wca: Boolean
     WCAsingle?: number,
     WCAaverage?: number,
     single?: number,
@@ -48,6 +49,7 @@ const Records: React.FC = () => {
                 if (pbData.hasOwnProperty(key)) {
                     let curr: IEvent = {
                         event: key,
+                        wca: true,
                         WCAsingle: WCAevents[key].single.best,
                         WCAaverage: WCAevents[key].average.best,
                         single: pbData[key].single,
@@ -61,7 +63,8 @@ const Records: React.FC = () => {
                     let curr: IEvent = {
                         event: key,
                         single: pbData[key].single,
-                        average: pbData[key].averages
+                        average: pbData[key].averages,
+                        wca: pbData[key].wca
                     }
                     temp[key] = curr
                 }
@@ -84,21 +87,22 @@ const Records: React.FC = () => {
             {loading ? (<div>Loading</div>) : 
                 (<Grid container spacing={1}>
                     {Object.keys(eventData).map((key) =>
+                        // vvv it be like this sometimes vvv
                         // eslint-disable-next-line react/jsx-key
                         <Grid item xs={5} className={styles.card}>
-                            <div>{translation[eventData[key].event]}</div>
-                            <div>Single:{' '}{eventData[key].single}</div>
+                            <div>{eventData[key].wca ? translation[eventData[key].event] : eventData[key].event}</div>
+                            {eventData[key].single != -1 ? <div>Single:{' '}{eventData[key].single}</div> : null}
                             {eventData[key].average[1] != -1 ? <div>Ao5:{' '}{eventData[key].average[1]}</div> : null}
                             {eventData[key].average[2] != -1 ? <div>Ao12:{' '}{eventData[key].average[2]}</div> : null}
                             {eventData[key].average[3] != -1 ? <div>Ao25:{' '}{eventData[key].average[3]}</div> : null}
                             {eventData[key].average[4] != -1 ? <div>Ao50:{' '}{eventData[key].average[4]}</div> : null}
                             {eventData[key].average[5] != -1 ? <div>Ao100:{' '}{eventData[key].average[5]}</div> : null}
-                            <div>Official Single:{' '}{eventData[key].WCAsingle / 100 || "None"}</div>
-                            <div>Official Average:{' '}{eventData[key].WCAaverage / 100 || "None"}</div>
+                            {eventData[key].wca ? <div>Official Single:{' '}{eventData[key].WCAsingle / 100 || "None"}</div> : null}
+                            {eventData[key].wca ? <div>Official Average:{' '}{eventData[key].WCAaverage / 100 || "None"}</div> : null}
                         </Grid>
                    )}
-                </Grid>)}
-            {/* </Paper> */}
+                </Grid>
+            )}
         </Container>
     )
 }
