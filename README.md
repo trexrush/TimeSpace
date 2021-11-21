@@ -5,7 +5,9 @@ Saving to Google Drive and Local Storage so you can access and edit your records
 becoming a PWA (progressive web app)
 visually displaying your records
 
-# Getting Started
+## Opening in localhost
+
+Clone this repository.
 
 Open a terminal and install npm dependencies,
 
