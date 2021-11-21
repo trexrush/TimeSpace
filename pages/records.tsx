@@ -9,7 +9,7 @@ interface IEvent {
     WCAsingle?: number,
     WCAaverage?: number,
     single?: number,
-    average?: any[]
+    average: any[]
 }
 
 const translation = {
@@ -56,6 +56,16 @@ const Records: React.FC = () => {
                     temp[key] = curr
                 }
             }
+            for (let key in pbData) {
+                if (!temp.hasOwnProperty(key)) {
+                    let curr: IEvent = {
+                        event: key,
+                        single: pbData[key].single,
+                        average: pbData[key].averages
+                    }
+                    temp[key] = curr
+                }
+            }
             setData(temp)
             setLoading(curr => !curr)
         }
@@ -63,7 +73,7 @@ const Records: React.FC = () => {
     }, [])
 
     useEffect(() => {
-        console.log(loading)
+        // console.log(loading)
     })
     if(!loading) {
         console.log(eventData)
@@ -72,18 +82,21 @@ const Records: React.FC = () => {
     return (
         <Container>
             {loading ? (<div>Loading</div>) : 
-                (<Grid container spacing={.5}>
-                    <Grid item xs={3} className={styles.card}>
-                        <div>{translation[eventData['333'].event]}</div>
-                        <div>Single:{' '}{eventData['333'].single}</div>
-                        <div>Ao5:{' '}{eventData['333'].average[1]}</div>
-                        <div>Ao12:{' '}{eventData['333'].average[2]}</div>
-                        <div>Ao25:{' '}{eventData['333'].average[3]}</div>
-                        <div>Ao50:{' '}{eventData['333'].average[4]}</div>
-                        <div>Ao100:{' '}{eventData['333'].average[5]}</div>
-                        <div>Official Single:{' '}{eventData['333'].WCAsingle / 100}</div>
-                        <div>Official Average:{' '}{eventData['333'].WCAaverage / 100}</div>
-                    </Grid>
+                (<Grid container spacing={1}>
+                    {Object.keys(eventData).map((key) =>
+                        // eslint-disable-next-line react/jsx-key
+                        <Grid item xs={5} className={styles.card}>
+                            <div>{translation[eventData[key].event]}</div>
+                            <div>Single:{' '}{eventData[key].single}</div>
+                            {eventData[key].average[1] != -1 ? <div>Ao5:{' '}{eventData[key].average[1]}</div> : null}
+                            {eventData[key].average[2] != -1 ? <div>Ao12:{' '}{eventData[key].average[2]}</div> : null}
+                            {eventData[key].average[3] != -1 ? <div>Ao25:{' '}{eventData[key].average[3]}</div> : null}
+                            {eventData[key].average[4] != -1 ? <div>Ao50:{' '}{eventData[key].average[4]}</div> : null}
+                            {eventData[key].average[5] != -1 ? <div>Ao100:{' '}{eventData[key].average[5]}</div> : null}
+                            {eventData[key].WCAsingle ? <div>Official Single:{' '}{eventData[key].WCAsingle / 100}</div> : null}
+                            {eventData[key].WCAsingle ? <div>Official Average:{' '}{eventData[key].WCAaverage / 100}</div> : null}
+                        </Grid>
+                   )}
                 </Grid>)}
             {/* </Paper> */}
         </Container>
