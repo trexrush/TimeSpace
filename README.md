@@ -5,7 +5,7 @@ Saving to Google Drive and Local Storage so you can access and edit your records
 becoming a PWA (progressive web app)
 visually displaying your records
 
-Speedcubing tracker (name WIP) is built with react, with NextJS, Typescript, and Sass.
+Speedcubing Tracker (name WIP) is built with react, with NextJS, Typescript, and Sass.
 
 ## Opening in localhost
 
