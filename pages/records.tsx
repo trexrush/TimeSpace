@@ -92,6 +92,7 @@ const Records: React.FC = () => {
                         <Grid item xs={5} className={styles.card}>
                             <div>{eventData[key].wca ? translation[eventData[key].event] : eventData[key].event}</div>
                             {eventData[key].single != -1 ? <div>Single:{' '}{eventData[key].single}</div> : null}
+                            {eventData[key].average[0] != -1 ? <div>Mo3:{' '}{eventData[key].average[0]}</div> : null}
                             {eventData[key].average[1] != -1 ? <div>Ao5:{' '}{eventData[key].average[1]}</div> : null}
                             {eventData[key].average[2] != -1 ? <div>Ao12:{' '}{eventData[key].average[2]}</div> : null}
                             {eventData[key].average[3] != -1 ? <div>Ao25:{' '}{eventData[key].average[3]}</div> : null}
