@@ -1,4 +1,4 @@
-import { styled } from '@mui/system'
+// import { styled } from '@mui/system'
 import { useState, useEffect } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
@@ -6,9 +6,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.sass'
 // import data from '../components/data'
 import axios from 'axios'
-import useAxios from 'axios-hooks'
-import { SliderValueLabelUnstyled } from '@mui/base'
-import { integerPropType } from '@mui/utils'
+// import useAxios from 'axios-hooks'
 
 interface IEvent {
   event?: string,
