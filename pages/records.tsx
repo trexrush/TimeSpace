@@ -93,8 +93,8 @@ const Records: React.FC = () => {
                             {eventData[key].average[3] != -1 ? <div>Ao25:{' '}{eventData[key].average[3]}</div> : null}
                             {eventData[key].average[4] != -1 ? <div>Ao50:{' '}{eventData[key].average[4]}</div> : null}
                             {eventData[key].average[5] != -1 ? <div>Ao100:{' '}{eventData[key].average[5]}</div> : null}
-                            {eventData[key].WCAsingle ? <div>Official Single:{' '}{eventData[key].WCAsingle / 100}</div> : null}
-                            {eventData[key].WCAsingle ? <div>Official Average:{' '}{eventData[key].WCAaverage / 100}</div> : null}
+                            <div>Official Single:{' '}{eventData[key].WCAsingle / 100 || "None"}</div>
+                            <div>Official Average:{' '}{eventData[key].WCAaverage / 100 || "None"}</div>
                         </Grid>
                    )}
                 </Grid>)}
