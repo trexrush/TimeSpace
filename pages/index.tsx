@@ -7,6 +7,7 @@ import styles from '../styles/Home.module.sass'
 // import data from '../components/data'
 import axios from 'axios'
 // import useAxios from 'axios-hooks'
+import Link from 'next/link'
 
 interface IEvent {
   event?: string,
@@ -45,13 +46,6 @@ const Home: NextPage = () => {
     console.log(data)
   }, [])
 
-  // const [{ data, loading, error }, refetch] = useAxios(
-  //   'https://firestore.googleapis.com/v1/projects/pb-tracker-af3ef/databases/(default)/documents/Event/3x3'
-  // )
-
-  // if (loading) return <div>Loading</div>
-  // if (error) return <div>Error</div>
-
   return (
     <div className={styles.container}>
       <Head>
@@ -62,52 +56,27 @@ const Home: NextPage = () => {
       
       <main className={styles.main}>
         <h1 className={styles.title}>
-          <a>{data.event}</a>
+          <a>Speedcubing Tracker</a>
         </h1>
 
         <p className={styles.description}>
-          <code>{data.wca ? "WCA event" : "Non WCA event"}</code>
+          <code>I need a better name for this</code>
         </p>
 
         <div className={styles.grid}>
-          <a href="/" className={styles.card}>
-            <h2>SINGLE</h2>
-            <p>{data.single}</p>
-          </a>
+          <Link href="/event" passHref>
+            <div className={styles.card}>
+              <h2>3x3</h2>
+            </div>
+          </Link>
 
-          <a href="/" className={styles.card}>
-            <h2>Average of 5</h2>
-            <p>{data.values[1]}</p>
-          </a>
-
-          <a
-            href="/"
-            className={styles.card}
-          >
-            <h2>Average of 12</h2>
-            <p>{data.values[2]}</p>
-          </a>
-
-          <a href="/" className={styles.card}>
-            <h2>Average of 50</h2>
-            <p>{data.values[4]}</p>
-          </a>
-
-          <a href="/" className={styles.card}>
-            <h2>Average of 100</h2>
-            <p>{data.values[5]}</p>
-          </a>
+          <Link href="/records" passHref>
+            <div className={styles.card}>
+              <h2>Records</h2>
+            </div>
+          </Link>
         </div>
       </main>
-
-      <footer className={styles.footer}>
-        <a href="/">
-          Powered{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
     </div>
   )
 }
