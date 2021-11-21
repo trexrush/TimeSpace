@@ -1,8 +1,10 @@
 import { Container, Grid, Paper } from "@mui/material"
-import axios from "axios"
+// import axios from "axios"
 import { useEffect, useState } from "react"
 import pbData from '../components/data.json'
 import styles from '../styles/Home.module.sass'
+
+import wcaRes from '../components/WCAdata.json'
 
 interface IEvent {
     event: String,
@@ -42,8 +44,9 @@ const Records: React.FC = () => {
     const [eventData, setData] = useState({})
     useEffect(() => {
         const fetchData = async () => {
-            const wcaRes = await axios('https://www.worldcubeassociation.org/api/v0/persons/2013mazu02')
-            let WCAevents = wcaRes.data.personal_records
+            // const wcaRes = await axios('https://www.worldcubeassociation.org/api/v0/persons/2013mazu02')
+            // let WCAevents = wcaRes.data.personal_records
+            let WCAevents = wcaRes.personal_records
             let temp = {}
             for (let key in WCAevents) {
                 if (pbData.hasOwnProperty(key)) {

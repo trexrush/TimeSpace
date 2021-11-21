@@ -1,0 +1,229 @@
+{
+    "person": {
+      "wca_id": "2013MAZU02",
+      "name": "Eduardo Mazuera",
+      "url": "https://www.worldcubeassociation.org/persons/2013MAZU02",
+      "gender": "m",
+      "country_iso2": "US",
+      "delegate_status": null,
+      "teams": [
+  
+      ],
+      "avatar": {
+        "url": "https://www.worldcubeassociation.org/assets/missing_avatar_thumb-12654dd6f1aa6d458e80d02d6eed8b1fbea050a04beeb88047cb805a4bfe8ee0.png",
+        "thumb_url": "https://www.worldcubeassociation.org/assets/missing_avatar_thumb-12654dd6f1aa6d458e80d02d6eed8b1fbea050a04beeb88047cb805a4bfe8ee0.png",
+        "is_default": true
+      }
+    },
+    "competition_count": 15,
+    "personal_records": {
+      "222": {
+        "single": {
+          "best": 320,
+          "world_rank": 12874,
+          "continent_rank": 3397,
+          "country_rank": 2411
+        },
+        "average": {
+          "best": 397,
+          "world_rank": 4926,
+          "continent_rank": 1345,
+          "country_rank": 967
+        }
+      },
+      "333": {
+        "single": {
+          "best": 1013,
+          "world_rank": 7764,
+          "continent_rank": 1857,
+          "country_rank": 1388
+        },
+        "average": {
+          "best": 1282,
+          "world_rank": 9481,
+          "continent_rank": 2204,
+          "country_rank": 1624
+        }
+      },
+      "333fm": {
+        "single": {
+          "best": 35,
+          "world_rank": 1786,
+          "continent_rank": 358,
+          "country_rank": 286
+        },
+        "average": {
+          "best": 4733,
+          "world_rank": 2081,
+          "continent_rank": 441,
+          "country_rank": 343
+        }
+      },
+      "333ft": {
+        "single": {
+          "best": 9109,
+          "world_rank": 1111,
+          "continent_rank": 261,
+          "country_rank": 201
+        },
+        "average": {
+          "best": 12831,
+          "world_rank": 1290,
+          "continent_rank": 298,
+          "country_rank": 234
+        }
+      },
+      "333oh": {
+        "single": {
+          "best": 2002,
+          "world_rank": 7002,
+          "continent_rank": 1497,
+          "country_rank": 1036
+        },
+        "average": {
+          "best": 2471,
+          "world_rank": 7021,
+          "continent_rank": 1436,
+          "country_rank": 986
+        }
+      },
+      "444": {
+        "single": {
+          "best": 4389,
+          "world_rank": 5748,
+          "continent_rank": 1263,
+          "country_rank": 893
+        },
+        "average": {
+          "best": 4873,
+          "world_rank": 4995,
+          "continent_rank": 1081,
+          "country_rank": 768
+        }
+      },
+      "555": {
+        "single": {
+          "best": 8559,
+          "world_rank": 3764,
+          "continent_rank": 850,
+          "country_rank": 608
+        },
+        "average": {
+          "best": 9905,
+          "world_rank": 4440,
+          "continent_rank": 1004,
+          "country_rank": 725
+        }
+      },
+      "666": {
+        "single": {
+          "best": 17999,
+          "world_rank": 2617,
+          "continent_rank": 659,
+          "country_rank": 472
+        },
+        "average": {
+          "best": 21301,
+          "world_rank": 3376,
+          "continent_rank": 854,
+          "country_rank": 602
+        }
+      },
+      "777": {
+        "single": {
+          "best": 34542,
+          "world_rank": 3891,
+          "continent_rank": 989,
+          "country_rank": 693
+        },
+        "average": {
+          "best": 35892,
+          "world_rank": 3502,
+          "continent_rank": 900,
+          "country_rank": 633
+        }
+      },
+      "clock": {
+        "single": {
+          "best": 2061,
+          "world_rank": 4689,
+          "continent_rank": 1060,
+          "country_rank": 804
+        },
+        "average": {
+          "best": 2765,
+          "world_rank": 4630,
+          "continent_rank": 1036,
+          "country_rank": 790
+        }
+      },
+      "minx": {
+        "single": {
+          "best": 10677,
+          "world_rank": 5519,
+          "continent_rank": 1333,
+          "country_rank": 873
+        },
+        "average": {
+          "best": 11782,
+          "world_rank": 5325,
+          "continent_rank": 1300,
+          "country_rank": 849
+        }
+      },
+      "pyram": {
+        "single": {
+          "best": 532,
+          "world_rank": 8161,
+          "continent_rank": 1894,
+          "country_rank": 1362
+        },
+        "average": {
+          "best": 881,
+          "world_rank": 9966,
+          "continent_rank": 2295,
+          "country_rank": 1690
+        }
+      },
+      "skewb": {
+        "single": {
+          "best": 472,
+          "world_rank": 4832,
+          "continent_rank": 1206,
+          "country_rank": 889
+        },
+        "average": {
+          "best": 708,
+          "world_rank": 4044,
+          "continent_rank": 998,
+          "country_rank": 729
+        }
+      },
+      "sq1": {
+        "single": {
+          "best": 3420,
+          "world_rank": 6296,
+          "continent_rank": 1883,
+          "country_rank": 1442
+        },
+        "average": {
+          "best": 6014,
+          "world_rank": 7587,
+          "continent_rank": 2263,
+          "country_rank": 1697
+        }
+      }
+    },
+    "medals": {
+      "gold": 0,
+      "silver": 0,
+      "bronze": 1,
+      "total": 1
+    },
+    "records": {
+      "national": 0,
+      "continental": 0,
+      "world": 0,
+      "total": 0
+    }
+  }
