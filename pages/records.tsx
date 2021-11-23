@@ -1,8 +1,7 @@
-import { Container, Grid, Paper } from "@mui/material"
+import { Container, Grid, Paper, CircularProgress, Box } from "@mui/material"
 // import axios from "axios"
 import { useEffect, useState } from "react"
 import pbData from '../components/data.json'
-import styles from '../styles/Home.module.sass'
 
 import wcaRes from '../components/WCAdata.json'
 
@@ -86,14 +85,16 @@ const Records: React.FC = () => {
     }
     
     return (
-        <Container>
-            {loading ? (<div>Loading</div>) : 
+        <Container className="flex justify-center items-center min-h-screen">
+            {loading ? (
+                <CircularProgress/>
+            ) : 
                 (<Grid container spacing={1}>
                     {Object.keys(eventData).map((key) =>
                         // vvv it be like this sometimes vvv
                         // eslint-disable-next-line react/jsx-key
-                        <Grid item xs={5} className={styles.card}>
-                            <div>{eventData[key].wca ? translation[eventData[key].event] : eventData[key].event}</div>
+                        <Grid item xs={5} className="eventCard flex flex-col">
+                            <div className="">{eventData[key].wca ? translation[eventData[key].event] : eventData[key].event}</div>
                             {eventData[key].single != -1 ? <div>Single:{' '}{eventData[key].single}</div> : null}
                             {eventData[key].average[0] != -1 ? <div>Mo3:{' '}{eventData[key].average[0]}</div> : null}
                             {eventData[key].average[1] != -1 ? <div>Ao5:{' '}{eventData[key].average[1]}</div> : null}
