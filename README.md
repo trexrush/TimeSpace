@@ -1,11 +1,12 @@
-Speedcubing Tracker (name WIP) is a web-based replacement for the PB excel sheet that many people use to track their Cubing Personal Bests. It supports both WCA and Non-WCA events, and can sync up to your WCA profile.
+TimeSpace is a web-based replacement for the PB excel sheet that many people use to track their Cubing Personal Bests. It supports both WCA and Non-WCA events.
+It will be able to sync up to your WCA profile.
 
 Since the web app is currently in development, planned features are -
-Saving to Google Drive and Local Storage so you can access and edit your records even when offline
-becoming a PWA (progressive web app)
-visually displaying your records
+Syncing to Google Drive so you can access and edit your records even when offline
+Becoming a PWA (progressive web app)
+visually displaying your records (graphs)
 
-Speedcubing Tracker (name WIP) is built with react, with NextJS, Typescript, and Sass.
+TimeSpace is built with react, with NextJS, Typescript, and Sass.
 
 ## Opening in localhost
 
