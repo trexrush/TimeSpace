@@ -1,9 +1,9 @@
 import { Container, Grid, Paper, CircularProgress, Box } from "@mui/material"
-// import axios from "axios"
+import axios from "axios"
 import { useEffect, useState } from "react"
 import pbData from '../components/data.json'
 
-import wcaRes from '../components/WCAdata.json'
+//import wcaRes from '../components/WCAdata.json'
 
 interface IEvent {
     event: String,
@@ -14,7 +14,7 @@ interface IEvent {
     average: any[]
 }
 
-const translation = {
+const translation: any = {
     "222": "2x2",
     "333": "3x3",
     "444": "4x4",
@@ -40,13 +40,13 @@ const translation = {
 
 const Records: React.FC = () => {
     const [loading, setLoading] = useState<boolean>(true)
-    const [eventData, setData] = useState({})
+    const [eventData, setData] = useState<any>({})
     useEffect(() => {
         const fetchData = async () => {
-            // const wcaRes = await axios('https://www.worldcubeassociation.org/api/v0/persons/2013mazu02')
-            // let WCAevents = wcaRes.data.personal_records
-            let WCAevents = wcaRes.personal_records
-            let temp = {}
+            const wcaRes = await axios('https://www.worldcubeassociation.org/api/v0/persons/2013mazu02')
+            let WCAevents = wcaRes.data.personal_records
+            //let WCAevents: any = wcaRes.personal_records
+            let temp: any = {}
             for (let key in WCAevents) {
                 if (pbData.hasOwnProperty(key)) {
                     let curr: IEvent = {
@@ -80,6 +80,7 @@ const Records: React.FC = () => {
     useEffect(() => {
         // console.log(loading)
     })
+
     if(!loading) {
         console.log(eventData)
     }
@@ -93,7 +94,7 @@ const Records: React.FC = () => {
                     {Object.keys(eventData).map((key) =>
                         // vvv it be like this sometimes vvv
                         // eslint-disable-next-line react/jsx-key
-                        <Grid item xs={5} className="eventCard flex flex-col">
+                        <Grid item xs={5} className="eventCard flex flex-col overflow-auto">
                             <div className="">{eventData[key].wca ? translation[eventData[key].event] : eventData[key].event}</div>
                             {eventData[key].single != -1 ? <div>Single:{' '}{eventData[key].single}</div> : null}
                             {eventData[key].average[0] != -1 ? <div>Mo3:{' '}{eventData[key].average[0]}</div> : null}
