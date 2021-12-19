@@ -1,5 +1,5 @@
-TimeSpace is a web-based replacement for the PB excel sheet that many people use to track their Cubing Personal Bests. It supports both WCA and Non-WCA events.
-It will be able to sync up to your WCA profile.
+TimeSpace is a web-based replacement for the PB excel sheet that many people use to track their Cubing Personal Bests. It will support both WCA and Non-WCA events.
+It will also be able to sync up to your WCA profile.
 
 Since the web app is currently in development, planned features are -
 Syncing to Google Drive so you can access and edit your records even when offline
