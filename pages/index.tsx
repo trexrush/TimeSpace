@@ -3,12 +3,12 @@ import { useState, useEffect } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.sass'
 // import data from '../components/data'
 import axios from 'axios'
 // import useAxios from 'axios-hooks'
 import Link from 'next/link'
 import { Container, Grid } from '@mui/material'
+import TimeSpace from '../assets/svg/TimeSpaceW.svg'
 
 const Home: NextPage = () => {
   return (
@@ -19,33 +19,44 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          <a>Speedcubing Tracker</a>
+      <main className="main">
+        <h1>
+          <Image src={TimeSpace} alt="TimeSpace" height={400}></Image>
         </h1>
 
-        <p className={styles.description}>
-          <code>I need a better name for this</code>
+        <p className="description">
+          <code>The space to log and record your competition times</code>
         </p>
 
         <Grid container spacing={3} className="flex justify-center">
-          {/* <Link href="/event" passHref>
-            <div className={styles.card}>
-              <h2>3x3</h2>
-            </div>
-          </Link> */}
           <Grid item xs={3}>
             <Link href="/records" passHref>
-              <div className={styles.card}>
-                <h2>Records</h2>
+              <div className="card">
+                <h2 className="cursor-pointer text-white">View</h2>
               </div>
             </Link>
           </Grid>
 
           <Grid item xs={3}>
-            <Link href="/records" passHref>
-              <div className={styles.card}>
-                <h2>Records</h2>
+            <Link href="/" passHref>
+              <div className="card">
+                <h2 className="cursor-pointer text-white">Edit</h2>
+              </div>
+            </Link>
+          </Grid>
+
+          <Grid item xs={3}>
+            <Link href="/" passHref>
+              <div className="card">
+                <h2 className="cursor-pointer text-white">Settings</h2>
+              </div>
+            </Link>
+          </Grid>
+
+          <Grid item xs={3}>
+            <Link href="/" passHref>
+              <div className="card">
+                <h2 className="cursor-pointer text-white">Login</h2>
               </div>
             </Link>
           </Grid>

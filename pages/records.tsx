@@ -95,16 +95,16 @@ const Records: React.FC = () => {
                         // vvv it be like this sometimes vvv
                         // eslint-disable-next-line react/jsx-key
                         <Grid item xs={5} className="eventCard flex flex-col overflow-auto">
-                            <div className="">{eventData[key].wca ? translation[eventData[key].event] : eventData[key].event}</div>
-                            {eventData[key].single != -1 ? <div>Single:{' '}{eventData[key].single}</div> : null}
-                            {eventData[key].average[0] != -1 ? <div>Mo3:{' '}{eventData[key].average[0]}</div> : null}
-                            {eventData[key].average[1] != -1 ? <div>Ao5:{' '}{eventData[key].average[1]}</div> : null}
-                            {eventData[key].average[2] != -1 ? <div>Ao12:{' '}{eventData[key].average[2]}</div> : null}
-                            {eventData[key].average[3] != -1 ? <div>Ao25:{' '}{eventData[key].average[3]}</div> : null}
-                            {eventData[key].average[4] != -1 ? <div>Ao50:{' '}{eventData[key].average[4]}</div> : null}
-                            {eventData[key].average[5] != -1 ? <div>Ao100:{' '}{eventData[key].average[5]}</div> : null}
-                            {eventData[key].wca ? <div>Official Single:{' '}{eventData[key].WCAsingle / 100 || "None"}</div> : null}
-                            {eventData[key].wca ? <div>Official Average:{' '}{eventData[key].WCAaverage / 100 || "None"}</div> : null}
+                            <div className="record">{eventData[key].wca ? translation[eventData[key].event] : eventData[key].event}</div>
+                            {eventData[key].single != -1 ? <div className="record">Single:{' '}{eventData[key].single}</div> : null}
+                            {eventData[key].average[0] != -1 ? <div className="record">Mo3:{' '}{eventData[key].average[0]}</div> : null}
+                            {eventData[key].average[1] != -1 ? <div className="record">Ao5:{' '}{eventData[key].average[1]}</div> : null}
+                            {eventData[key].average[2] != -1 ? <div className="record">Ao12:{' '}{eventData[key].average[2]}</div> : null}
+                            {eventData[key].average[3] != -1 ? <div className="record">Ao25:{' '}{eventData[key].average[3]}</div> : null}
+                            {eventData[key].average[4] != -1 ? <div className="record">Ao50:{' '}{eventData[key].average[4]}</div> : null}
+                            {eventData[key].average[5] != -1 ? <div className="record">Ao100:{' '}{eventData[key].average[5]}</div> : null}
+                            {eventData[key].wca ? <div className="record">Official Single:{' '}{eventData[key].WCAsingle / 100 || "None"}</div> : null}
+                            {eventData[key].wca ? <div className="record">Official Average:{' '}{eventData[key].WCAaverage / 100 || "None"}</div> : null}
                         </Grid>
                    )}
                 </Grid>
