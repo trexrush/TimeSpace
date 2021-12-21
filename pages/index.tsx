@@ -9,6 +9,7 @@ import axios from 'axios'
 import Link from 'next/link'
 import { Container, Grid } from '@mui/material'
 import TimeSpace from '../assets/svg/TimeSpaceW.svg'
+import MenuButton from '../components/MenuButton'
 
 const Home: NextPage = () => {
   return (
@@ -29,13 +30,7 @@ const Home: NextPage = () => {
         </p>
 
         <Grid container spacing={3} className="flex justify-center">
-          <Grid item xs={3}>
-            <Link href="/records" passHref>
-              <div className="card">
-                <h2 className="cursor-pointer text-white">View</h2>
-              </div>
-            </Link>
-          </Grid>
+          <MenuButton redirect="/records">View Records</MenuButton>
 
           <Grid item xs={3}>
             <Link href="/" passHref>

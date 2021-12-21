@@ -8,6 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@cubing/icons": "^1.0.4",
     "@emotion/react": "^11.6.0",
     "@emotion/styled": "^11.6.0",
     "@mui/material": "^5.1.1",
