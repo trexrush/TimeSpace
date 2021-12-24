@@ -31,30 +31,9 @@ const Home: NextPage = () => {
 
         <Grid container spacing={3} className="flex justify-center">
           <MenuButton redirect="/records">View Records</MenuButton>
-
-          <Grid item xs={3}>
-            <Link href="/" passHref>
-              <div className="card">
-                <h2 className="cursor-pointer text-white">Edit</h2>
-              </div>
-            </Link>
-          </Grid>
-
-          <Grid item xs={3}>
-            <Link href="/" passHref>
-              <div className="card">
-                <h2 className="cursor-pointer text-white">Settings</h2>
-              </div>
-            </Link>
-          </Grid>
-
-          <Grid item xs={3}>
-            <Link href="/" passHref>
-              <div className="card">
-                <h2 className="cursor-pointer text-white">Login</h2>
-              </div>
-            </Link>
-          </Grid>
+          <MenuButton redirect="/">Settings</MenuButton>
+          <MenuButton redirect="/">Login</MenuButton>
+          <MenuButton redirect="/">Edit</MenuButton>
         </Grid>
       </main>
     </Container>

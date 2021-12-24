@@ -1,4 +1,4 @@
-import { Container, Grid, Paper, CircularProgress, Box } from "@mui/material"
+import { Grid, CircularProgress } from "@mui/material"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import pbData from '../components/data.json'
@@ -77,39 +77,43 @@ const Records: React.FC = () => {
         fetchData()
     }, [])
 
-    useEffect(() => {
-        // console.log(loading)
-    })
-
     if(!loading) {
         console.log(eventData)
     }
     
     return (
-        <Container className="flex justify-center items-center min-h-screen">
+        <div className="flex justify-center items-center min-h-screen w-full">
             {loading ? (
                 <CircularProgress/>
             ) : 
                 (<Grid container spacing={1}>
                     {Object.keys(eventData).map((key) =>
-                        // vvv it be like this sometimes vvv
-                        // eslint-disable-next-line react/jsx-key
-                        <Grid item xs={5} className="eventCard flex flex-col overflow-auto">
+                        <div key={key} className="eventCard flex flex-col">
                             <div className="record">{eventData[key].wca ? translation[eventData[key].event] : eventData[key].event}</div>
+                            {/* single */}
                             {eventData[key].single != -1 ? <div className="record">Single:{' '}{eventData[key].single}</div> : null}
+                            {/* mean of 3 */}
                             {eventData[key].average[0] != -1 ? <div className="record">Mo3:{' '}{eventData[key].average[0]}</div> : null}
+                            {/* average of 5 */}
                             {eventData[key].average[1] != -1 ? <div className="record">Ao5:{' '}{eventData[key].average[1]}</div> : null}
+                            {/* average of 12 */}
                             {eventData[key].average[2] != -1 ? <div className="record">Ao12:{' '}{eventData[key].average[2]}</div> : null}
+                            {/* average of 25 */}
                             {eventData[key].average[3] != -1 ? <div className="record">Ao25:{' '}{eventData[key].average[3]}</div> : null}
+                            {/* average of 50 */}
                             {eventData[key].average[4] != -1 ? <div className="record">Ao50:{' '}{eventData[key].average[4]}</div> : null}
+                            {/* average of 100 */}
                             {eventData[key].average[5] != -1 ? <div className="record">Ao100:{' '}{eventData[key].average[5]}</div> : null}
+                            {/* wca single */}
                             {eventData[key].wca ? <div className="record">Official Single:{' '}{eventData[key].WCAsingle / 100 || "None"}</div> : null}
+                            {/* wca average */}
                             {eventData[key].wca ? <div className="record">Official Average:{' '}{eventData[key].WCAaverage / 100 || "None"}</div> : null}
-                        </Grid>
+
+                        </div>
                    )}
                 </Grid>
             )}
-        </Container>
+        </div>
     )
 }
 export default Records
