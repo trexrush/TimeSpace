@@ -10,8 +10,10 @@ import Link from 'next/link'
 import { Container, Grid } from '@mui/material'
 import TimeSpace from '../assets/svg/TimeSpaceW.svg'
 import MenuButton from '../components/MenuButton'
+import LoginButton from '../components/LoginButton'
 
 const Home: NextPage = () => {
+
   return (
     <Container>
       <Head>
@@ -31,9 +33,7 @@ const Home: NextPage = () => {
 
         <Grid container spacing={3} className="flex justify-center">
           <MenuButton redirect="/records">View Records</MenuButton>
-          <MenuButton redirect="/">Settings</MenuButton>
-          <MenuButton redirect="/">Login</MenuButton>
-          <MenuButton redirect="/">Edit</MenuButton>
+          <LoginButton/>
         </Grid>
       </main>
     </Container>
