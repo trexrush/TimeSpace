@@ -10,7 +10,7 @@ const LoginButton = (props: any) => {
                 {session ?
                     <button onClick={() => signOut()}>
                         <div className="card">
-                            <h2 className="cursor-pointer text-white">Sign Out (Signed in as {session.user.email})</h2>
+                            <h2 className="cursor-pointer text-white">Sign Out (Signed in as {session?.user?.email})</h2>
                         </div>
                     </button> :
                     <button onClick={() => signIn()}>
