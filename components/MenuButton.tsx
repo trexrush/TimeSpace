@@ -2,13 +2,12 @@ import { Grid } from "@mui/material"
 import Link from "next/link"
 
 const MenuButton = (props: any) => {
-    return  <Grid item xs={3}>
+    return  <div>
                 <Link href={props.redirect} passHref>
-                    <div className="card">
-                        {/* <div className="cardrect"></div> */}
-                        <h2 className="cursor-pointer text-white">{props.children}</h2>
+                    <div className="menucard">
+                        <div className="cursor-pointer text-white">{props.children}</div>
                     </div>
                 </Link>
-            </Grid>
+            </div>
 }
 export default MenuButton
