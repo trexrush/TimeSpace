@@ -21,7 +21,7 @@ const Records: NextPage = () => {
     }
     
     return (
-        <div className="flex justify-center items-center min-h-screen w-full">
+        <div className="min-h-screen w-full">
             {loading ? (
                 <div>Loading</div>
             ) : 

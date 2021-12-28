@@ -5,15 +5,6 @@ import axios from 'axios'
 
 const prisma = new PrismaClient()
 
-interface IEvent {
-  event: String,
-  wca: Boolean
-  WCAsingle?: number,
-  WCAaverage?: number,
-  single?: number,
-  average: any[]
-}
-
 export default async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
   if (req.method === 'GET') {
     const userRoute: any = req.query
@@ -21,12 +12,27 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     let WCAevents = wcaRes.data.personal_records
     let result: any = {}
     for (let key in WCAevents) {
+        // query from postgres
         let postEvents: any = await prisma.event.findFirst({
             where: {
-                eventName: key
+                eventName: key,
+                username: "trexrush"
             }
         })
-        result[key] = postEvents
+
+        // if no event in postgres, skip the wca entry
+        if (postEvents === undefined || postEvents === null) {
+          continue
+        }
+
+        // build the return value
+        let temp = {
+          wca: true,
+          WCAsingle: WCAevents[key].single.best,
+          WCAaverage:WCAevents[key].average.best,
+          ...postEvents
+        }
+        result[key] = temp
     }
     res.json(result)
   }
