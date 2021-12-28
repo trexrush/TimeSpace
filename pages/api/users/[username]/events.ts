@@ -13,6 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     let result: any = {}
     for (let key in WCAevents) {
         // query from postgres
+        //@ts-ignore
         let postEvents: any = await prisma.event.findFirst({
             where: {
                 eventName: key,
