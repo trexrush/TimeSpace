@@ -1,12 +1,11 @@
-import { Grid } from "@mui/material"
 import Link from "next/link"
 import { useSession, signIn, signOut } from "next-auth/react"
 
 const LoginButton = (props: any) => {
     const { data: session } = useSession()
+    console.log(session)
 
-
-    return  <Grid item xs={3}>
+    return  <div>
                 {session ?
                     <button onClick={() => signOut()}>
                         <div className="menucard">
@@ -18,6 +17,6 @@ const LoginButton = (props: any) => {
                             <h2 className="text-white">Google Sign In</h2>
                         </div>
                     </button>}
-            </Grid>
+            </div>
 }
 export default LoginButton

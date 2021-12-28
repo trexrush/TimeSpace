@@ -11,9 +11,11 @@ import Link from 'next/link'
 import TimeSpace from '../assets/svg/TimeSpaceW.svg'
 import MenuButton from '../components/MenuButton'
 import LoginButton from '../components/LoginButton'
+import NameForm from '../components/NameForm'
+import { useSession } from 'next-auth/react'
 
 const Home: NextPage = () => {
-
+  const { data: session } = useSession()
   return (
     <>
       <Head>
@@ -23,7 +25,12 @@ const Home: NextPage = () => {
       </Head>
       
       <main className="main">
-          <MenuButton redirect="/records">View Records</MenuButton>
+        {session && 
+          <>
+            <MenuButton redirect="/records">View Records</MenuButton>
+            <NameForm/>
+          </>    
+        }
           <LoginButton/>
       </main>
     </>

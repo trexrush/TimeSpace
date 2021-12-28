@@ -37,6 +37,8 @@ Open a terminal and install npm dependencies,
 npm i
 ```
 
+Here is where I might or might not go into detail about creating a postgres server and setting up prisma. Maybe.
+
 then run the dev server.
 
 ```bash

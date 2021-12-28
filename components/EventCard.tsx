@@ -1,42 +1,24 @@
+import eventName from "./eventName"
 
-
-const translation: any = {
-    "222": "2x2",
-    "333": "3x3",
-    "444": "4x4",
-    "555": "5x5",
-    "666": "6x6",
-    "777": "7x7",
-    "333bf": "3BLD",
-    "333fm": "Fewest Moves",
-    "333ft": "Feet",
-    "333mbf": "Multi BLD",
-    "333mbo": "Multi BLD Old Style",
-    "333oh": "One-Handed",
-    "444bf": "4BLD",
-    "555bf": "5BLD",
-    "clock": "Rubiks Clock",
-    "magic": "Rubiks Magic",
-    "minx": "Megaminx",
-    "mmagic": "Master Magic",
-    "pyram": "Pyraminx",
-    "skewb": "Skewb",
-    "sq1": "Square-1",
+const exists = (data:Number): Boolean => {
+    return data !== null
 }
 
-const EventCard = (key: any, eventData: any) => {
-    console.log(eventData)
+const EventCard = (props:any, { key }:any) => {
+    console.log(key)
+    console.log(props.single)
     return  <div key={key} className="eventCard flex flex-col">
-                <div className="record">{eventData[key].wca ? translation[eventData[key].event] : eventData[key].event}</div>
-                {/* single */ eventData[key].single != -1 && <div className="record">Single:{' '}{eventData[key].single}</div>}
-                {/* mean of 3 */ eventData[key].average[0] != -1 && <div className="record">Mo3:{' '}{eventData[key].average[0]}</div>}
-                {/* average of 5 */ eventData[key].average[1] != -1 && <div className="record">Ao5:{' '}{eventData[key].average[1]}</div>}
-                {/* average of 12 */ eventData[key].average[2] != -1 && <div className="record">Ao12:{' '}{eventData[key].average[2]}</div>}
-                {/* average of 25 */ eventData[key].average[3] != -1 && <div className="record">Ao25:{' '}{eventData[key].average[3]}</div>}
-                {/* average of 50 */ eventData[key].average[4] != -1 && <div className="record">Ao50:{' '}{eventData[key].average[4]}</div>}
-                {/* average of 100 */ eventData[key].average[5] != -1 && <div className="record">Ao100:{' '}{eventData[key].average[5]}</div>}
-                {/* wca single */ eventData[key].wca && <div className="record">Official Single:{' '}{eventData[key].WCAsingle / 100 || "None"}</div>}
-                {/* wca average */ eventData[key].wca && <div className="record">Official Average:{' '}{eventData[key].WCAaverage / 100 || "None"}</div>}
+                {/* no non-wca support yet */}
+                <div className="record">{eventName[props.eventName]}</div>
+                {/* single */ exists(props.single) && <div className="record">Single:{' '}{props.single}</div>}
+                {/* mean of 3 */ exists(props.mo_3) && <div className="record">Mo3:{' '}{props.mo_3}</div>}
+                {/* average of 5 */ exists(props.ao_5) && <div className="record">Ao5:{' '}{props.ao_5}</div>}
+                {/* average of 12 */ exists(props.ao_12) && <div className="record">Ao12:{' '}{props.ao_12}</div>}
+                {/* average of 25 */ exists(props.ao_25) && <div className="record">Ao25:{' '}{props.ao_25}</div>}
+                {/* average of 50 */ exists(props.ao_50) && <div className="record">Ao50:{' '}{props.ao_50}</div>}
+                {/* average of 100 */ exists(props.ao_100) && <div className="record">Ao100:{' '}{props.ao_100}</div>}
+                {/* wca single */ props.wca && <div className="record">Official Single:{' '}{props.WCAsingle / 100 || "None"}</div>}
+                {/* wca average */ props.wca && <div className="record">Official Average:{' '}{props.WCAaverage / 100 || "None"}</div>}
             </div>
 }
 export default EventCard

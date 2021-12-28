@@ -36,4 +36,5 @@ export default NextAuth({
   //     // @ts-ignore
   //   encryption: true,
   // },
+  debug: true
 })
