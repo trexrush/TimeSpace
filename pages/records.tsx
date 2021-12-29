@@ -17,7 +17,7 @@ const Records: NextPage = () => {
     }, [])
 
     if(!loading) {
-        console.log(eventData)
+        console.dir(eventData)
     }
     
     return (
