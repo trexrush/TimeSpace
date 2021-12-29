@@ -1,12 +1,9 @@
-// import { styled } from '@mui/system'
 import { useState, useEffect } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 // import Image from 'next/image'
-// import data from '../components/data'
 import axios from 'axios'
-// import useAxios from 'axios-hooks'
-import Link from 'next/link'
+// import Link from 'next/link'
 // import { Container, Grid } from '@mui/material'
 import TimeSpace from '../assets/svg/TimeSpaceW.svg'
 import MenuButton from '../components/MenuButton'
@@ -15,12 +12,28 @@ import NameForm from '../components/NameForm'
 import { useSession } from 'next-auth/react'
 
 const Home: NextPage = () => {
+  const [userData, setUserData] = useState<any>()
   const { data: session } = useSession()
+
+  const loadUserData = async () => {
+    const call = await axios("/api/users/data")
+    .then(res => {
+      setUserData(res.data[0])
+      console.dir(userData)
+
+    }, err => console.log(err))
+  }
+
+  useEffect(() => {
+    loadUserData()
+  }, [])
+
+
   return (
     <>
       <Head>
         <title>TimeSpace</title>
-        <meta name="description" content="View and edit cube records" />
+        <meta name="description" content="View and edit cube records"/>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       
@@ -28,10 +41,10 @@ const Home: NextPage = () => {
         {session && 
           <>
             <MenuButton redirect="/records">View Records</MenuButton>
-            <NameForm/>
+            <NameForm data={userData}/>
           </>    
         }
-          <LoginButton/>
+          <LoginButton session={session}/>
       </main>
     </>
   )

@@ -7,8 +7,9 @@ const prisma = new PrismaClient()
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse<any>) {
   if (req.method === 'GET') {
-    const userRoute: any = req.query
+    const userRoute: any = req.query.name
     const wcaRes = await axios('https://www.worldcubeassociation.org/api/v0/persons/2013mazu02')
+    console.log(userRoute)
     let WCAevents = wcaRes.data.personal_records
     let result: any = {}
     for (let key in WCAevents) {
@@ -17,7 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         let postEvents: any = await prisma.event.findFirst({
             where: {
                 eventName: key,
-                username: "trexrush"
+                username: userRoute
             }
         })
 

@@ -1,13 +1,13 @@
 import axios from "axios"
 import React, { useState } from "react"
 
-const NameForm = () => {
+const NameForm = (data: any) => {
     const [val, setVal] = useState('')
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        await axios.post(`/api/users/username/trexrush3`, { val })
-        .then(res => console.log(res), err => console.log(err))
+        await axios.post(`/api/users/username/${data.data.username}`, { val })
+        .then(res => console.log(data.data.username), err => console.log(err))
     }
 
     return  <form onSubmit={handleSubmit}>
