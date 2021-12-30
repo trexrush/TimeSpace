@@ -1,6 +1,5 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { PrismaClient, Prisma } from '@prisma/client'
+import { PrismaClient } from '@prisma/client'
 import axios from 'axios'
 
 const prisma = new PrismaClient()
@@ -9,7 +8,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
   if (req.method === 'GET') {
     const userRoute: any = req.query.name
     const wcaRes = await axios('https://www.worldcubeassociation.org/api/v0/persons/2013mazu02')
-    console.log(userRoute)
     let WCAevents = wcaRes.data.personal_records
     let result: any = {}
     for (let key in WCAevents) {

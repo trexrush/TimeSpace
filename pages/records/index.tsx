@@ -1,17 +1,17 @@
 import axios from "axios"
 import { NextPage } from "next"
 import { useSession } from "next-auth/react"
+import Link from "next/link"
+import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
-import pbData from '../components/data.json'
-import EventCard from "../components/EventCard"
+import EventCard from "../../components/EventCard"
 
 const Records: NextPage = () => {
     const [userData, setUserData] = useState<any>()
     const [eventData, setData] = useState<any>({})
     const [loading, setLoading] = useState<boolean>(true)
     const { data: session } = useSession()
-  
-
+    const router = useRouter()
   
     useEffect(() => { // loads the username of the user that the current session belongs to
         const loadUserData = async () => {
@@ -23,6 +23,7 @@ const Records: NextPage = () => {
             }, err => console.log(err))
             }
         loadUserData()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => { // loads the data of the current user given the loaded data
@@ -37,20 +38,39 @@ const Records: NextPage = () => {
         fetchData()
     }, [userData])
 
-    if(!loading) {
-        console.dir(eventData)
-    }
+    useEffect(() => {
+        if(!loading) {
+            console.dir(eventData)
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [loading])
+
     
     return (
         <div className="min-h-screen w-full">
             {loading ? (
                 <div>Loading</div>
-            ) : 
-                (<div>
-                    {Object.keys(eventData).map((key) =>
-                        eventData[key] && <EventCard key={key} {...eventData[key]}></EventCard>
-                   )}
-                </div>
+            ) : (
+                <>
+                <Link href={`${router.pathname}/${userData.username}`} passHref>
+                <a style={{color: "skyblue"}}>
+                        Public Url: {router.pathname}/{userData.username}
+                    </a>
+                </Link>
+
+                    <div>
+                        {Object.keys(eventData).map((key) =>
+                            eventData[key] && <EventCard key={key} {...eventData[key]}></EventCard>
+                        )}
+                    </div>
+                    <Link href="/" passHref>
+                        <a style={{color: "skyblue"}}>
+                            Back
+                        </a>
+                    </Link>
+
+                </>
+
             )}
         </div>
     )
