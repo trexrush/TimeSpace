@@ -4,6 +4,11 @@ import { PrismaClient } from '@prisma/client'
 const prisma = new PrismaClient()
 
 export default async function handler( req: NextApiRequest, res: NextApiResponse<any> ) {
-  const users = await prisma.account.findMany()
-  res.json(users)
+    if (req.method === 'DELETE') {
+        res.status(200).send("deleted")
+    }
+    else {
+        res.status(400).send({ message: 'Invalid Method' })
+        return
+    }
 }
