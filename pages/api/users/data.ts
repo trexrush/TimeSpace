@@ -11,7 +11,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         if (session) {
             const userEmail: string = session.user.email
             const fullUser: any = await prisma.$queryRaw`
-                SELECT username, name, email
+                SELECT username, name, email, u.id userId, ac.id actId
                 FROM public.account as ac, public.user as u
                 WHERE u.id = ac."userId" and email = ${userEmail};`
 

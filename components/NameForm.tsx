@@ -6,7 +6,8 @@ const NameForm = (data: any) => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        await axios.post(`/api/users/username/${data.data.username}`, { val })
+        console.log(data)
+        await axios.post(`/api/users/username/${data.data.actid}`, { val, data })
         .then(res => console.log(data.data.username), err => console.log(err))
     }
 

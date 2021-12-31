@@ -38,7 +38,7 @@ const Home: NextPage = () => {
       }, err => console.log(err))
     }
     loadUserData()
-  }, [])
+  }, [session])
 
 
   return (
@@ -52,7 +52,7 @@ const Home: NextPage = () => {
       <main className="main">
         {session && 
           <>
-            <MenuButton redirect="/records">View Records</MenuButton>
+            {<MenuButton redirect="/records">View Records</MenuButton>}
             <NameForm data={userData}/>
           </>    
         }
