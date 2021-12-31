@@ -18,8 +18,6 @@ const Records: NextPage = () => {
             const call = await axios("/api/users/data")
             .then(res => {
                 setUserData(res.data[0])
-                console.dir(userData)
-        
             }, err => console.log(err))
             }
         loadUserData()
@@ -30,7 +28,7 @@ const Records: NextPage = () => {
         const fetchData = async () => {
             if(userData !== undefined) {
                 console.log(userData)
-                const resp = await axios(`api/users/events/${userData.username}`)
+                const resp = await axios(`api/users/records/${userData.username}`)
                 setData(resp.data)
                 setLoading(curr => !curr)
             }
@@ -45,6 +43,13 @@ const Records: NextPage = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [loading])
 
+    const addEvent = async () => {
+        console.log("gonna add an event")
+    }
+
+    const removeEvent = () => {
+        console.log("remove event")
+    }
     
     return (
         <div className="min-h-screen w-full">
@@ -52,25 +57,29 @@ const Records: NextPage = () => {
                 <div>Loading</div>
             ) : (
                 <>
-                <Link href={`${router.pathname}/${userData.username}`} passHref>
-                <a style={{color: "skyblue"}}>
-                        Public Url: {router.pathname}/{userData.username}
-                    </a>
-                </Link>
-
+                    <Link href={`${router.pathname}/${userData.username}`} passHref>
+                        <a style={{color: "skyblue"}}>
+                            Public Url: {router.pathname}/{userData.username}
+                        </a>
+                    </Link>
                     <div>
                         {Object.keys(eventData).map((key) =>
-                            eventData[key] && <EventCard key={key} {...eventData[key]}></EventCard>
+                            <>
+                                <button style={{color: "red"}} onClick={removeEvent}>[-]</button>
+                                {eventData[key] && <EventCard key={key} {...eventData[key]}></EventCard>}
+                            </>
                         )}
                     </div>
+                    <button style={{color: "lime"}} onClick={addEvent}>
+                            [+]
+                    </button>
+                    <br/>
                     <Link href="/" passHref>
                         <a style={{color: "skyblue"}}>
                             Back
                         </a>
                     </Link>
-
                 </>
-
             )}
         </div>
     )

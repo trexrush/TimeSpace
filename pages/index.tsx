@@ -28,6 +28,7 @@ import { PrismaClient } from '@prisma/client'
 const Home: NextPage = () => {
   const [userData, setUserData] = useState<any>()
   const { data: session } = useSession()
+  const [click, setClick] = useState<Boolean>(false)
 
 
   useEffect(() => {
@@ -40,6 +41,21 @@ const Home: NextPage = () => {
     loadUserData()
   }, [session])
 
+  useEffect(() => {
+    console.log(userData)
+  }, [userData])
+
+  const addSheet = async () => {
+    await axios("/api/users/records/add")
+    .then(res => {
+      console.log(res)
+    }, err => console.log(err))
+  }
+
+  const handleSheetClick = () => {
+    setClick(true)
+    console.log(click)
+  }
 
   return (
     <>
@@ -52,11 +68,20 @@ const Home: NextPage = () => {
       <main className="main">
         {session && 
           <>
-            {<MenuButton redirect="/records">View Records</MenuButton>}
-            <NameForm data={userData}/>
-          </>    
+            {userData?.username ?
+              <MenuButton redirect="/records">
+                View Records
+              </MenuButton> :
+              <>
+                {click ?
+                  <NameForm data={userData}/> :
+                  <button style={{color: "lime"}} onClick={ handleSheetClick }>[+ User and Sheet]</button>
+                }
+              </>
+            }
+            <LoginButton session={session}/>
+          </>
         }
-          <LoginButton session={session}/>
       </main>
     </>
   )

@@ -5,6 +5,7 @@ const exists = (data:Number): Boolean => {
 }
 
 const EventCard = (props:any) => {
+
     return  <div className="flex flex-col">
                 {/* no non-wca support yet */}
                 <div>{eventName[props.eventName]}</div>

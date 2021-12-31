@@ -12,7 +12,7 @@ const RecordsPublic: NextPage = ({urlPath}: any) => {
             return
         }
         const fetchData = async () => {
-            const resp = await axios(`/api/users/events/${urlPath}`)
+            const resp = await axios(`/api/users/records/${urlPath}`)
             setData(resp.data)
             setLoading(curr => !curr)
         }

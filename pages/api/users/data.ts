@@ -11,12 +11,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
         if (session) {
             const userEmail: string = session.user.email
             const fullUser: any = await prisma.$queryRaw`
-                SELECT username, name, email, u.id userId, ac.id actId
+                SELECT ac.username username, name, email, u.id userId, ac.id actId
                 FROM public.account as ac, public.user as u
                 WHERE u.id = ac."userId" and email = ${userEmail};`
-
-            // console.log(fullUser, userEmail)
-            // console.log(fullUser[0].email, userEmail)
+            console.log(fullUser, userEmail)
             res.json(fullUser)
             return
         }
