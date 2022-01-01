@@ -44,7 +44,7 @@ const Records: NextPage = () => {
     }, [loading])
 
     const addEvent = async () => {
-        await axios.post("api/users/records/event/create", { eventName:"333", username: userData.username })
+        await axios.post("api/users/records/event/create", { eventName:"444", username: userData.username })
         .then(res => console.dir(res))
     }
 
