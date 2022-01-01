@@ -79,9 +79,9 @@ const Home: NextPage = () => {
                 }
               </>
             }
-            <LoginButton session={session}/>
           </>
         }
+        <LoginButton session={session}/>
       </main>
     </>
   )
