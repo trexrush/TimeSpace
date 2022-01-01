@@ -44,7 +44,7 @@ const Records: NextPage = () => {
     }, [loading])
 
     const addEvent = async () => {
-        await axios.post("api/users/records/event/create", { eventName:"444", username: userData.username })
+        await axios.post("api/users/records/event/create", { eventName:"555", username: userData.username })
         .then(res => console.dir(res))
     }
 
@@ -65,10 +65,10 @@ const Records: NextPage = () => {
                     </Link>
                     <div>
                         {Object.keys(eventData).map((key) =>
-                            <>
+                            <div key={key}>
                                 <button style={{color: "red"}} onClick={removeEvent}>[-]</button>
-                                {eventData[key] && <EventCard key={key} {...eventData[key]}></EventCard>}
-                            </>
+                                {eventData[key] && <EventCard {...eventData[key]}></EventCard>}
+                            </div>
                         )}
                     </div>
                     <button style={{color: "lime"}} onClick={addEvent}>
