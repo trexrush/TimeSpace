@@ -5,6 +5,7 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import EventCard from "../../components/EventCard"
+import EventForm from "../../components/EventForm"
 
 const Records: NextPage = () => {
     const [userData, setUserData] = useState<any>()
@@ -36,7 +37,7 @@ const Records: NextPage = () => {
         fetchData()
     }, [userData])
 
-    useEffect(() => {
+    useEffect(() => { // once loaded, console logs the event Data (DEV)
         if(!loading) {
             console.dir(eventData)
         }
@@ -45,7 +46,7 @@ const Records: NextPage = () => {
 
     const addEvent = async () => {
         await axios.post("api/users/records/event/create", { eventName:"555", username: userData.username })
-        .then(res => console.dir(res))
+        .then(res => alert(res.data))
     }
 
     const removeEvent = () => {
@@ -66,14 +67,15 @@ const Records: NextPage = () => {
                     <div>
                         {Object.keys(eventData).map((key) =>
                             <div key={key}>
-                                <button style={{color: "red"}} onClick={removeEvent}>[-]</button>
-                                {eventData[key] && <EventCard {...eventData[key]}></EventCard>}
+                                <button style={{color: "red"}} onClick={removeEvent}>[-RemoveEvent]</button>
+                                {eventData[key] && <EventCard {...eventData[key]} eventname={key} userData={userData}></EventCard>}
                             </div>
                         )}
                     </div>
-                    <button style={{color: "lime"}} onClick={addEvent}>
-                            [+]
-                    </button>
+                    <EventForm placeholder="[+NewEvent]" userName={userData.username}/>
+                    {/* <button style={{color: "lime"}} onClick={addEvent}>
+                            [+NewEvent]
+                    </button> */}
                     <br/>
                     <Link href="/" passHref>
                         <a style={{color: "skyblue"}}>
