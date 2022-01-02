@@ -9,16 +9,12 @@ const Record = ({ name, eventname, time, userData, type }: any) => {
         console.log("delete record")
     }
     return  <>
-                <div>{name}:
-                    {userData ? (
-                    <>
-                        <TimeForm placeholder={time} userData={userData} type={type} eventname={eventname}/>
-                    </>
-                    ) : (
-                    <>
-                        <div>{'    '}{time}</div>
-                    </>
-                    )}
+                <div>{name}:{' '}
+                    {userData ?
+                        <TimeForm placeholder={time} userData={userData} type={type} eventname={eventname}/> 
+                        :
+                        <div className="inline-block">{' '}{time}</div>
+                    }
                 </div>
             </>
 }

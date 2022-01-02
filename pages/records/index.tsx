@@ -67,7 +67,8 @@ const Records: NextPage = () => {
                     <div>
                         {Object.keys(eventData).map((key) =>
                             <div key={key}>
-                                <button style={{color: "red"}} onClick={removeEvent}>[-RemoveEvent]</button>
+                                {/* <button style={{color: "red"}} onClick={removeEvent}>[-RemoveEvent]</button> */}
+                                <br/>
                                 {eventData[key] && <EventCard {...eventData[key]} eventname={key} userData={userData}></EventCard>}
                             </div>
                         )}

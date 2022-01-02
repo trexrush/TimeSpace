@@ -30,7 +30,10 @@ const RecordsPublic: NextPage = ({urlPath}: any) => {
             ) : (
                 <div>
                     {Object.keys(eventData).map((key) =>
-                        eventData[key] && <EventCard key={key} {...eventData[key]}></EventCard>
+                        <>
+                            {eventData[key] && <EventCard key={key} {...eventData[key]}></EventCard>}
+                            <br/>
+                        </>
                    )}
                 </div>
             )}

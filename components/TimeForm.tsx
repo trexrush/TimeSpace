@@ -16,7 +16,7 @@ const TimeForm = ({ placeholder, userData, type, eventname }: any) => {
         })
     }
 
-    return  <form onSubmit={handleSubmit}>
+    return  <form onSubmit={handleSubmit} className="inline-block">
                 <input
                 value={val}
                 onChange={e => setVal(e.target.value)}
