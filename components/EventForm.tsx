@@ -27,15 +27,26 @@ import React, { useState, Fragment } from "react"
 //     { id: 22, submit: "sq1", name: "Square-1" }
 // ]
 
-const EventForm = ({ placeholder, userName }: any) => {
+const EventForm = ({ placeholder, userData, eventData, setData }: any) => {
     // const [val, setVal] = useState(eventoptions[0])
     const [val, setVal] = useState('')
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        console.log(val, placeholder, userName)
-        await axios.post("api/users/records/event/create", { eventName: val, username: userName })
-        .then(res => console.log(res.data))
+        console.log(val, placeholder, userData.username)
+        await axios.post("api/users/records/event/create", { eventName: val, username: userData.username })
+        .then(res => location.reload())
+    }
+
+    const updateData = () => {
+        // let neweventdata = eventData
+        // let temp = {
+        //     eventName: val,
+        //     username: userData.username,
+        //     wca: true
+        // }
+        // neweventdata[val] = temp
+        // setData(neweventdata)
     }
 
     return  <form onSubmit={handleSubmit}>

@@ -28,7 +28,7 @@ const Records: NextPage = () => {
     useEffect(() => { // loads the data of the current user given the loaded data
         const fetchData = async () => {
             if(userData !== undefined) {
-                console.log(userData)
+                console.dir(userData)
                 const resp = await axios(`api/users/records/${userData.username}`)
                 setData(resp.data)
                 setLoading(curr => !curr)
@@ -44,14 +44,9 @@ const Records: NextPage = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [loading])
 
-    const addEvent = async () => {
-        await axios.post("api/users/records/event/create", { eventName:"555", username: userData.username })
-        .then(res => alert(res.data))
-    }
-
-    const removeEvent = () => {
-        console.log("remove event")
-    }
+    // const removeEvent = () => {
+    //     console.log("remove event")
+    // }
     
     return (
         <div className="min-h-screen w-full">
@@ -73,7 +68,7 @@ const Records: NextPage = () => {
                             </div>
                         )}
                     </div>
-                    <EventForm placeholder="[+NewEvent]" userName={userData.username}/>
+                    <EventForm placeholder="[+NewEvent]" userData={userData} eventData={eventData} setData={setData}/>
                     {/* <button style={{color: "lime"}} onClick={addEvent}>
                             [+NewEvent]
                     </button> */}
