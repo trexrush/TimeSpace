@@ -10,6 +10,7 @@ import LoginButton from '../components/LoginButton'
 import NameForm from '../components/NameForm'
 import { getSession, useSession } from 'next-auth/react'
 import { PrismaClient } from '@prisma/client'
+import SheetDataForm from '../components/SheetDataForm'
 
 // export const getServerSideProps = async () => {
 //   const prisma = new PrismaClient()
@@ -69,12 +70,15 @@ const Home: NextPage = () => {
         {session && 
           <>
             {userData?.username ?
-              <MenuButton redirect="/records">
-                View Records
-              </MenuButton> :
+              <>
+                <MenuButton redirect="/records">
+                  View Records
+                </MenuButton>
+                <SheetDataForm data={userData}/>
+              </> :
               <>
                 {click ?
-                  <NameForm data={userData}/> :
+                    <NameForm data={userData}/> :
                   <button style={{color: "lime"}} onClick={ handleSheetClick }>[+ User and Sheet]</button>
                 }
               </>

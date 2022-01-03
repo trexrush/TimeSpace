@@ -16,6 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     if (userWca.wcaid) {
       const wcaRes = await axios(`https://www.worldcubeassociation.org/api/v0/persons/${userWca?.wcaid}`)
       let WCAevents = wcaRes.data.personal_records
+      console.log(WCAevents)
 
       let result: any = {}
       for (let key in WCAevents) {
@@ -36,8 +37,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
           // build the return value
           let temp = {
             wca: true,
-            WCAsingle: WCAevents[key].single.best,
-            WCAaverage:WCAevents[key].average.best,
+            WCAsingle: WCAevents[key].single?.best,
+            WCAaverage:WCAevents[key].average?.best,
             ...postEvents
           }
           result[key] = temp
