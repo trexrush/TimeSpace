@@ -6,6 +6,7 @@ import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import EventCard from "../../components/EventCard"
 import EventForm from "../../components/EventForm"
+import Framework from "../../components/Framework"
 
 const Records: NextPage = () => {
     const [userData, setUserData] = useState<any>()
@@ -49,7 +50,7 @@ const Records: NextPage = () => {
     // }
     
     return (
-        <div className="min-h-screen w-full">
+        <Framework>
             {loading ? (
                 <div>Loading</div>
             ) : (
@@ -62,16 +63,12 @@ const Records: NextPage = () => {
                     <div>
                         {Object.keys(eventData).map((key) =>
                             <div key={key}>
-                                {/* <button style={{color: "red"}} onClick={removeEvent}>[-RemoveEvent]</button> */}
                                 <br/>
                                 {eventData[key] && <EventCard {...eventData[key]} eventname={key} userData={userData}></EventCard>}
                             </div>
                         )}
                     </div>
                     <EventForm placeholder="[+NewEvent]" userData={userData} eventData={eventData} setData={setData}/>
-                    {/* <button style={{color: "lime"}} onClick={addEvent}>
-                            [+NewEvent]
-                    </button> */}
                     <br/>
                     <Link href="/" passHref>
                         <a style={{color: "skyblue"}}>
@@ -80,7 +77,7 @@ const Records: NextPage = () => {
                     </Link>
                 </>
             )}
-        </div>
+        </Framework>
     )
 }
 export default Records

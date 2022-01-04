@@ -51,6 +51,7 @@ const EventForm = ({ placeholder, userData, eventData, setData }: any) => {
 
     return  <form onSubmit={handleSubmit}>
                 <input
+                type="text"
                 value={val}
                 onChange={e => setVal(e.target.value)}
                 placeholder={placeholder}>

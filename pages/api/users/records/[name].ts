@@ -28,7 +28,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                   username: userRoute
               }
           })
-
           // if no event in postgres, skip the wca entry
           if (postEvents === undefined || postEvents === null) {
             continue
@@ -43,6 +42,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
           }
           result[key] = temp
       }
+      
       res.json(result)
     }
     else {

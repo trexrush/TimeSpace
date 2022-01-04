@@ -15,11 +15,15 @@ a
   padding: 0
 
 .main 
-  @apply flex flex-col justify-center items-center min-h-screen
+  @apply flex flex-col min-h-screen absolute
+
+.background
+  // position, bg
+  @apply h-screen w-screen fixed
+  @apply bg-no-repeat bg-center bg-fixed
+
   background: linear-gradient(0deg, $gradientMain2 0%, $gradientMain1 100%)
+  
+input[type="text"]
+  background: transparent
 
-// __________________ //
-
-.eventCard
-  @apply h-80 w-80 m-8 p-4 text-center no-underline rounded-md transition-all overflow-auto
-  background-color: $transparent

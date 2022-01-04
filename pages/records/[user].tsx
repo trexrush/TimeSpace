@@ -2,6 +2,7 @@ import axios from "axios"
 import { NextPage } from "next"
 import { useEffect, useState } from "react"
 import EventCard from "../../components/EventCard"
+import Framework from "../../components/Framework"
 
 const RecordsPublic: NextPage = ({urlPath}: any) => {
     const [eventData, setData] = useState<any>({})
@@ -24,7 +25,7 @@ const RecordsPublic: NextPage = ({urlPath}: any) => {
     }
     
     return (
-        <div className="min-h-screen w-full">
+        <Framework>
             {loading ? (
                 <div>Loading</div>
             ) : (
@@ -37,7 +38,7 @@ const RecordsPublic: NextPage = ({urlPath}: any) => {
                    )}
                 </div>
             )}
-        </div>
+        </Framework>
     )
 }
 

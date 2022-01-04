@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
-// import Image from 'next/image'
+import Image from 'next/image'
 import axios from 'axios'
-// import Link from 'next/link'
-import TimeSpace from '../assets/svg/TimeSpaceW.svg'
+import Link from 'next/link'
+import TimeSpace from '../assets/svg/Logo White v2.svg'
 import MenuButton from '../components/MenuButton'
 import LoginButton from '../components/LoginButton'
 import NameForm from '../components/NameForm'
 import { getSession, useSession } from 'next-auth/react'
 import { PrismaClient } from '@prisma/client'
 import SheetDataForm from '../components/SheetDataForm'
+import Framework from '../components/Framework'
 
 // export const getServerSideProps = async () => {
 //   const prisma = new PrismaClient()
@@ -60,13 +61,9 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <Head>
-        <title>TimeSpace</title>
-        <meta name="description" content="View and edit cube records"/>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       
-      <main className="main">
+      <Framework>
+        <Image src={TimeSpace} alt='logo' height={200}/>
         {session && 
           <>
             {userData?.username ?
@@ -86,7 +83,7 @@ const Home: NextPage = () => {
           </>
         }
         <LoginButton session={session}/>
-      </main>
+      </Framework>
     </>
   )
 }
