@@ -81,6 +81,8 @@ model Event {
   ao_500    String?
   ao_1000   String?
 
+  notes     String?
+
 
   @@id([username, eventName])
 }
@@ -92,4 +94,6 @@ model Sheet {
   username          String      @id
   sheet             Account     @relation(fields: [username], references: [username], onDelete: SetNull)
   events            Event[]
+
+  info              String?
 }
