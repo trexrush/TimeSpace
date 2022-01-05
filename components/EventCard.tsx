@@ -1,6 +1,7 @@
 import EventForm from "./EventForm"
 import eventName from "./eventName"
 import Record from "./Record"
+import "@cubing/icons"
 
 const exists = (data:Number): Boolean => {
     return (data !== null && data !== undefined)
@@ -12,7 +13,10 @@ const EventCard = (props:any) => {
                 {props.userData ? <>
                     <div className="flex flex-col">
                         {/* no non-wca support yet */}
-                        <div>{eventName[props.eventName]}</div>
+                        <div>{eventName[props.eventName]}
+                            {/* only if wca */}
+                            <span className={`cubing-icon event-${props.eventName}`}></span>
+                        </div>
                         {/* single */ <Record name="Single" time={props.single} userData={props.userData} type={"single"} eventname={props.eventName}/>}
                         {/* mean of 3 */ <Record name="Mo3" time={props.mo_3} userData={props.userData}  type={"mo_3"}  eventname={props.eventName}/>}
                         {/* average of 5 */ <Record name="Ao5" time={props.ao_5} userData={props.userData}  type={"ao_5"}  eventname={props.eventName}/>}

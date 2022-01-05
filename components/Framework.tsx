@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Background from './Background'
 
 const Framework: React.FC = (props: any) => {
     return  <>
@@ -7,7 +8,7 @@ const Framework: React.FC = (props: any) => {
                     <meta name="description" content="View and edit cube records" />
                     <link rel="icon" href="/favicon.ico" />
                 </Head>
-                <div className='background'></div>
+                <Background/>
                 <main className='main'>
                     {props.children}   
                 </main>
