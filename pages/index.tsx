@@ -63,7 +63,7 @@ const Home: NextPage = () => {
     <>
       
       <Framework>
-        <Image src={TimeSpace} alt='logo' height={200}/>
+        <Image src={TimeSpace} alt='logo' height={200} width={500}/>
         {session && 
           <>
             {userData?.username ?

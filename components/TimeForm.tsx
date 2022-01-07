@@ -16,12 +16,12 @@ const TimeForm = ({ placeholder, userData, type, eventname }: any) => {
         })
     }
 
-    return  <form onSubmit={handleSubmit} className="inline-block">
+    return  <form onSubmit={handleSubmit} className="inline w-auto p-0 m-0 text-2xl absolute">
                 <input
                 type="text"
                 value={val}
                 onChange={e => setVal(e.target.value)}
-                placeholder={placeholderState}>
+                placeholder={placeholderState ? placeholderState : "none"}>
                 </input>
             </form>
 }

@@ -4,6 +4,7 @@ html, body
   padding: 0
   margin: 0
   font-size: 1.2em
+  color: white
 
 a 
   color: inherit
@@ -14,18 +15,19 @@ a
   margin: 0
   padding: 0
 
-.main 
-  @apply flex flex-col min-h-screen absolute
-
 .background
   // position, bg
   @apply h-screen w-screen fixed
   @apply bg-no-repeat bg-center bg-fixed
 
-  background: linear-gradient(0deg, $gradientMain2 0%, $gradientMain1 100%)
+  background: linear-gradient(320deg, $gradientMain2 0%, $gradientMain1 100%)
   
 input[type="text"]
   background: transparent
 
 .filter-bg-icon
-  filter: opacity(7%)
+  filter: opacity($bgObjectOpacity) invert(100%)
+
+// temp //
+.w-card
+  width: 410px

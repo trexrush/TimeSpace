@@ -29,11 +29,10 @@ const RecordsPublic: NextPage = ({urlPath}: any) => {
             {loading ? (
                 <div>Loading</div>
             ) : (
-                <div>
+                <div className="flex flex-wrap justify-center items-center">
                     {Object.keys(eventData).map((key) =>
                         <>
                             {eventData[key] && <EventCard key={key} {...eventData[key]}></EventCard>}
-                            <br/>
                         </>
                    )}
                 </div>

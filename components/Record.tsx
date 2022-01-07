@@ -13,7 +13,7 @@ const Record = ({ name, eventname, time, userData, type }: any) => {
                     {userData ?
                         <TimeForm placeholder={time} userData={userData} type={type} eventname={eventname}/> 
                         :
-                        <div className="inline-block">{' '}{time}</div>
+                        <span className="inline-block">{' '}{time}</span>
                     }
                 </div>
             </>
