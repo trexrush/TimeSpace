@@ -1,3 +1,5 @@
+![TimeSpace logo](./assets/svg/Logo%20White%20v2.svg)
+
 # About TimeSpace
 
 TimeSpace is a web-based replacement for the PB excel sheet that many people use to track their Cubing Personal Bests.
