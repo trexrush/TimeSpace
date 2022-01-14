@@ -1,23 +1,27 @@
-import { Grid } from "@mui/material"
 import Link from "next/link"
-import { useSession, signIn, signOut } from "next-auth/react"
+import { signIn, signOut, useSession } from "next-auth/react"
+import { useEffect } from "react"
 
 const LoginButton = (props: any) => {
-    const { data: session } = useSession()
+    // const { data: session } = useSession()
+
+    useEffect(() => {
+        // console.dir(props.session)
+    }, [])
 
 
-    return  <Grid item xs={3}>
-                {session ?
+    return  <div>
+                {props.session ?
                     <button onClick={() => signOut()}>
-                        <div className="card">
-                            <h2 className="cursor-pointer text-white">Sign Out (Signed in as {session?.user?.email})</h2>
+                        <div className="menucard">
+                            <h2 className="text-white">Sign Out (Signed in as {props.session?.user?.email})</h2>
                         </div>
                     </button> :
-                    <button onClick={() => signIn()}>
-                        <div className="card">
-                            <h2 className="cursor-pointer text-white">Sign In</h2>
+                    <button onClick={() => signIn("google")}>
+                        <div className="menucard">
+                            <h2 className="text-white">Google Sign In</h2>
                         </div>
                     </button>}
-            </Grid>
+            </div>
 }
 export default LoginButton

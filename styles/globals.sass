@@ -3,9 +3,8 @@
 html, body
   padding: 0
   margin: 0
-  background: linear-gradient(0deg, $gradientMain2 0%, $gradientMain1 100%)
-  color: $primaryDark
   font-size: 1.2em
+  color: white
 
 a 
   color: inherit
@@ -16,49 +15,19 @@ a
   margin: 0
   padding: 0
 
-.main 
-  @apply flex flex-col justify-center items-center min-h-screen
+.background
+  // position, bg
+  @apply h-screen w-screen fixed
+  @apply bg-no-repeat bg-center bg-fixed
 
-// __________________ //
+  background: linear-gradient(320deg, $gradientMain2 0%, $gradientMain1 100%)
+  
+input[type="text"]
+  background: transparent
 
-.description
-  @apply text-2xl
-  text-align: center
+.filter-bg-icon
+  filter: opacity($bgObjectOpacity) invert(100%)
 
-.description, .record
-  @apply text-white
-
-.card
-  @apply m-4 p-6 text-center no-underline rounded-sm transition-all max-w-xs
-  color: inherit
-  background: linear-gradient(0deg, $transparent2 0%, $transparent 50%)
-  clip-path: polygon(0 0, 80% 0%, 100% 100%, 20% 100%)
-  // border: 1px solid $transparent
-
-.cardrect
-  background-color: $transparent
-  clip-path: polygon(0 0, 80% 0%, 100% 100%, 20% 100%)
-  border: 1px solid $transparent
-
-.card:hover 
-  color: $hoverColor
-  border-color: $hoverColor
-  transform: scale(1.2, 1.2)
-  border-color: $primaryDark
-
-.grid
-  @apply w-full flex-col sm:flex-row
-
-.eventCard
-  // ONLY VALID ABOVE 400PX
-  // min-height: 300px
-  // max-height: 300px
-  // min-width: 300px
-  // max-width: 300px
-  @apply h-80 w-80 m-8 p-4 text-center no-underline rounded-md transition-all overflow-auto
-  color: inherit
-  border: 2px solid $transparent
-  background-color: $transparent
-
-.record
-  @apply h-auto w-full text-center
+// temp //
+.w-card
+  width: 410px

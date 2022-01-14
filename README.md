@@ -1,46 +1,9 @@
+![TimeSpace logo](./assets/svg/Logo%20White%20v2.svg)
+
 # About TimeSpace
 
-TimeSpace is a web-based replacement for the PB excel sheet that many people use to track their Cubing Personal Bests. It will support both WCA and Non-WCA events.
-It will also be able to sync up to your WCA profile.
+TimeSpace is a web-based replacement for the PB excel sheet that many people use to track their Cubing Personal Bests.
+With TimeSpace you can publicly display your speedcubing accomplishments and records
+It also can connect to your WCA profile
 
-Since the web app is currently in development, planned features are -
-Syncing to Google Drive so you can access and edit your records even when offline
-Becoming a PWA (progressive web app)
-visually displaying your records (graphs)
-
-TimeSpace is built with react, with NextJS, Typescript, and Sass.
-
-## Setting up in localhost
-
-Clone this repository.
-
-Create a new file in the directory named `.env.local`.
-in that file paste the followng env variables:
-
-'''
-GOOGLE_ID=
-GOOGLE_SECRET=
-SECRET=
-'''
-
-Setup Google Oauth and put the appropriate variables into `.env.local`
-
-To generate the SECRETS variable, open a terminal,
-
-```bash
-openssh rand -base64 32
-```
-
-Open a terminal and install npm dependencies,
-
-```bash
-npm i
-```
-
-then run the dev server.
-
-```bash
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser.
+TimeSpace is built with the NextJS framework, with TypeScript, React and Tailwind on the frontend, and Postgres, Prisma ORM, and Next's api routes on the backend.
