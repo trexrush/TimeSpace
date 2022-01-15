@@ -6,9 +6,8 @@ const SheetDataForm = (data: any) => {
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        console.log(data)
         await axios.post(`/api/users/integrations/update`, { val, data })
-        .then(res => console.log(data.data.wcaid), err => console.log(err))
+        // .then(res => console.log(data.data.wcaid), err => console.log(err))
     }
 
     return  <form onSubmit={handleSubmit}>

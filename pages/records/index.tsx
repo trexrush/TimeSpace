@@ -47,9 +47,9 @@ const Records: NextPage = () => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [loading])
 
-    // const removeEvent = () => {
-    //     console.log("remove event")
-    // }
+    const removeEvent = () => {
+        // console.log("remove event")
+    }
     
     return (
         <Framework>

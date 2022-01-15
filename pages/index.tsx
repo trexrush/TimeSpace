@@ -43,20 +43,8 @@ const Home: NextPage = () => {
     loadUserData()
   }, [session])
 
-  useEffect(() => {
-    console.log(userData)
-  }, [userData])
-
-  const addSheet = async () => {
-    await axios("/api/users/records/add")
-    .then(res => {
-      console.log(res)
-    }, err => console.log(err))
-  }
-
   const handleSheetClick = () => {
     setClick(true)
-    console.log(click)
   }
 
   return (

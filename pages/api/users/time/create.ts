@@ -3,7 +3,7 @@ import { prisma } from '../../../../lib/prisma'
 
 export default async function handler( req: NextApiRequest, res: NextApiResponse<any> ) {
     if (req.method === 'POST') {
-        console.log(req.body)
+        // console.log(req.body)
 
         let updateVal = req.body.val
         if (updateVal === '') {

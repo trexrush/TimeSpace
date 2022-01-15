@@ -46,8 +46,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
       
       res.json(result)
     }
-    else {
-      console.log("no registered wca account")
+    else { //no registered wca account
 
       for (let ev of dbEvents) {
         let currEvent = {
