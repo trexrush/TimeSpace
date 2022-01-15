@@ -22,17 +22,5 @@ export default NextAuth({
   ],
   secret: process.env.SECRET,
 
-  // session: {
-  //   // Use JSON Web Tokens for session instead of database sessions.
-  //   // This option can be used with or without a database for users/accounts.
-  //   // Note: `strategy` should be set to 'jwt' if no database is used.
-  //   strategy: 'jwt',
-  // },
-
-  // jwt: {
-  //   secret: process.env.SECRET,
-  //     // @ts-ignore
-  //   encryption: true,
-  // },
-  debug: true
+  debug: false
 })
