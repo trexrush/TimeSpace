@@ -5,11 +5,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     const oldData: any = req.body.data.data
     const newName = req.body.val
 
+    const collisions = await prisma.account.findMany({
+        where: {
+            username: newName
+        }
+    })
+
     if (req.method === 'POST') {
 
-        if (newName === "") { // or collision
-            const error = "this name is empty or already exists. Try again"
-            res.status(400).send(error)
+        if (newName === "" || collisions.length !== 0) { // or collision
+            const error = "This username is empty or is already taken. Try again."
+            res.status(200).send({ message: error })
         }
         else {
             const updateUser = await prisma.account.update({
@@ -27,7 +33,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
                 }
             })
 
-            res.status(200).send(addSheet)
+            res.status(200).send({ message: "Welcome to TimeSpace!"})
             // res.status(200)
         }
     }
