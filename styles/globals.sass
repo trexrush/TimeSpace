@@ -28,6 +28,14 @@ input[type="text"]
 .filter-bg-icon
   filter: opacity($bgObjectOpacity) invert(100%)
 
+
+  // fix these
+.ulitem
+  @apply cursor-pointer underline bg-transparent  decoration-[rgba(255,255,255,.2)] hover:decoration-white
+
+.input
+  @apply focus:bg-[rgba(255,255,255,.1)] decoration-[rgba(255,255,255,.6)]
+
 // temp //
 .w-card
   width: 410px

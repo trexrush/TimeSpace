@@ -14,12 +14,12 @@ const LoginButton = (props: any) => {
                 {props.session ?
                     <button onClick={() => signOut()}>
                         <div className="menucard">
-                            <h2 className="text-white">Sign Out (Signed in as {props.session?.user?.email})</h2>
+                            <h2 className="text-white hover:underline">Sign Out</h2>
                         </div>
                     </button> :
                     <button onClick={() => signIn("google")}>
                         <div className="menucard">
-                            <h2 className="text-white">Google Sign In</h2>
+                            <h2 className="text-white hover:underline">Google Sign In</h2>
                         </div>
                     </button>}
             </div>

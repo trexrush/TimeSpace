@@ -45,9 +45,10 @@ const Records: NextPage = () => {
     
     return (
         <Framework>
-            {loading ? (
-                <div>Loading</div>
-            ) : (
+            { userData ?
+                loading ? 
+                    <div>Loading</div>
+                :
                 <>
                     <div className="flex flex-row justify-evenly items-center cursor-pointer">
                         <Link href="/" passHref>
@@ -61,7 +62,7 @@ const Records: NextPage = () => {
                         <div></div>
                         <div></div>
                         <Link href={`${router.pathname}/${userData.username}`} passHref>
-                            <a style={{color: "skyblue"}}>
+                            <a className="text-sky-300 decoration-sky-300 hover:underline">
                                 Public Url: {router.pathname}/{userData.username}
                             </a>
                         </Link>
@@ -70,7 +71,7 @@ const Records: NextPage = () => {
                     <div className="flex flex-wrap justify-center items-center">
                         {Object.keys(eventData).map((key) =>
                             <div key={key}>
-                                {eventData[key] && <EventCard {...eventData[key]} eventname={key} userData={userData}></EventCard>}
+                                <EventCard {...eventData[key]} eventname={key} userData={userData}></EventCard>
                             </div>
                         )}
                     </div>
@@ -78,7 +79,16 @@ const Records: NextPage = () => {
                         <EventForm userData={userData} eventData={eventData} setData={setData}/>
                     </div>
                 </>
-            )}
+            :
+                <div className="grid h-screen w-screen place-items-center">
+                    <div className="text-center">
+                        <div className="sm:text-4xl text-2xl">
+                            Log in to manage your records <br/>
+                        </div>
+                        <Link href='/'>Back to Home</Link>
+                    </div>
+                </div>
+            }
         </Framework>
     )
 }

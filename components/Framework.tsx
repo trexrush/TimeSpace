@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Background from './Background'
 
-const Framework: React.FC = (props: any) => {
+const Framework: React.FC = ({ center, children }: any) => {
     return  <>
                 <Head>
                     <title>TimeSpace</title>
@@ -15,8 +15,8 @@ const Framework: React.FC = (props: any) => {
                     />
                 </Head>
                 <Background/>
-                <main className='flex flex-col absolute'>
-                    {props.children}   
+                <main className={`flex flex-col absolute ${center && "items-center w-screen"}`}>
+                    {children}   
                 </main>
             </>
 }

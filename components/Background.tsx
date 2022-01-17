@@ -24,11 +24,8 @@ const Background: React.FC = (props: any) => {
     // width on PC - MAX 400 MIN 175
     return  <div className='background'>
                 <EventImage {..._333}/>
-                <EventImage {..._222}/>
-                <EventImage {..._444}/>
                 <EventImage {..._skewb}/>
                 <EventImage {..._666}/>
-                <EventImage {..._pyra}/>
                 <EventImage {..._sq1}/>
                 
                 {/* <Image src={_444} alt="444" className='filter-bg-icon absolute' width={rand(175, 400)}/>

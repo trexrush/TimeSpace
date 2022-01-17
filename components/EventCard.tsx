@@ -13,9 +13,8 @@ const EventCard = (props:any) => {
         userData: props.userData,
         eventname: props.eventName
     }
-    return  <div className="flex flex-col m-8">
-                {props.userData ? 
-                <>
+    return  props.userData ? 
+                <div className="flex flex-col m-8">
                     {/* no non-wca support yet */}
                     <div className="text-5xl">
                         {/* only if wca */}
@@ -38,12 +37,12 @@ const EventCard = (props:any) => {
                             {props.wca && <div>WCA single:{' '}{props.WCAsingle / 100 || "None"}</div>}
                             {props.wca && <div>WCA average:{' '}{props.WCAaverage / 100 || "None"}</div>}
                         </div>
-                        <div className="absolute h-[92%] right-2 w-[135px] flex flex-col border-2 rounded-md">
+                        {/* <div className="absolute h-[92%] right-2 w-[135px] flex flex-col border-2 rounded-md">
                             Notes<br/>{props.notes}
-                        </div>
+                        </div> */}
                     </div>
-                </> : (exists(props.mo_3) || exists(props.ao_5) || exists(props.ao_12) || exists(props.ao_25) || exists(props.ao_50) || exists(props.ao_100) || exists(props.single)) &&
-                <>
+                </div> : (exists(props.mo_3) || exists(props.ao_5) || exists(props.ao_12) || exists(props.ao_25) || exists(props.ao_50) || exists(props.ao_100) || exists(props.single)) &&
+                <div className="flex flex-col m-8">
                     {/* no non-wca support yet */}
                     <div className="text-5xl">
                         {/* only if wca */}
@@ -70,7 +69,5 @@ const EventCard = (props:any) => {
                             Notes<br/>{props.notes}
                         </div>
                     </div>
-                </>}
-            </div>
-}
+                </div>}
 export default EventCard

@@ -14,7 +14,8 @@ const NameForm = (data: any) => {
                 <input
                 value={val}
                 onChange={e => setVal(e.target.value)}
-                placeholder="create / modify username">
+                placeholder="Create a Username"
+                className="text-4xl bg-transparent outline-none decoration-[rgba(255,255,255,.6)] focus:bg-[rgba(255,255,255,.1)] hover:underline rounded-[7px] text-center">
                 </input>
             </form>
 }

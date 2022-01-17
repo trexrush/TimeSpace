@@ -30,10 +30,8 @@ const RecordsPublic: NextPage = ({urlPath}: any) => {
                 <div>Loading</div>
             ) : (
                 <div className="flex flex-wrap justify-center items-center">
-                    {Object.keys(eventData).map((key) =>
-                        <>
-                            {eventData[key] && <EventCard key={key} {...eventData[key]}></EventCard>}
-                        </>
+                    {Object.keys(eventData).map((key) => 
+                        <EventCard key={key} {...eventData[key]}></EventCard>
                    )}
                 </div>
             )}

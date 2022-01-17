@@ -12,9 +12,10 @@ const SheetDataForm = (data: any) => {
 
     return  <form onSubmit={handleSubmit}>
                 <input
+                className="bg-transparent outline-none hover:underline decoration-[rgba(255,255,255,.3)] focus:bg-[rgba(255,255,255,.1)] rounded-[9px] w-[140px] mt-3"
                 value={val}
                 onChange={e => setVal(e.target.value)}
-                placeholder="change wcaid">
+                placeholder="change WCA id">
                 </input>
             </form>
 }

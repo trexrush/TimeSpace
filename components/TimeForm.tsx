@@ -14,13 +14,14 @@ const TimeForm = ({ placeholder, userData, type, eventname }: any) => {
         })
     }
 
-    return  <form onSubmit={handleSubmit} className="inline w-auto p-0 m-0 text-2xl absolute">
-                <input
-                type="text"
-                value={val}
-                onChange={e => setVal(e.target.value)}
-                placeholder={placeholderState ? placeholderState : "none"}>
-                </input>
+    return  <form onSubmit={handleSubmit} className="inline w-auto absolute m-0">
+                    <input
+                    className="cursor-pointer p-2 bg-transparent focus:bg-[rgba(255,255,255,.1)] decoration-[rgba(255,255,255,.5)] rounded-lg hover:underline outline-none w-[120px] text-2xl h-7"
+                    type="text"
+                    value={val}
+                    onChange={e => setVal(e.target.value)}
+                    placeholder={placeholderState ? placeholderState : "none"}>
+                    </input>   
             </form>
 }
 export default TimeForm
