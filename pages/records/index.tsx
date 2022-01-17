@@ -31,7 +31,6 @@ const Records: NextPage = () => {
     useEffect(() => { // loads the data of the current user given the loaded data
         const fetchData = async () => {
             if(userData !== undefined) {
-                console.dir(userData)
                 const resp = await axios(`api/users/records/${userData.username}`)
                 setData(resp.data)
                 setLoading(curr => !curr)
@@ -39,13 +38,6 @@ const Records: NextPage = () => {
         }
         fetchData()
     }, [userData])
-
-    useEffect(() => { // once loaded, console logs the event Data (DEV)
-        if(!loading) {
-            console.dir(eventData)
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [loading])
 
     const removeEvent = () => {
         // console.log("remove event")
@@ -82,8 +74,9 @@ const Records: NextPage = () => {
                             </div>
                         )}
                     </div>
-                    <EventForm placeholder="[+NewEvent]" userData={userData} eventData={eventData} setData={setData}/>
-                    
+                    <div className="flex flex-col items-center">
+                        <EventForm placeholder="[+NewEvent]" userData={userData} eventData={eventData} setData={setData}/>
+                    </div>
                 </>
             )}
         </Framework>

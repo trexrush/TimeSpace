@@ -1,73 +1,105 @@
-import { Listbox } from "@headlessui/react"
+import { width } from "@mui/system"
 import axios from "axios"
 import React, { useState, Fragment } from "react"
+import { useForm, Controller } from "react-hook-form"
+import Select from "react-select"
 
-// const eventoptions = [
-//     { id: 1, submit: "333", name: "3x3" },
-//     { id: 2, submit: "222", name: "2x2" },
-//     { id: 3, submit: "333", name: "3x3" },
-//     { id: 4, submit: "444", name: "4x4" },
-//     { id: 5, submit: "555", name: "5x5" },
-//     { id: 6, submit: "666", name: "6x6" },
-//     { id: 7, submit: "777", name: "7x7" },
-//     { id: 8, submit: "333bf", name: "3BLD" },
-//     { id: 9, submit: "333fm", name: "Fewest Moves" },
-//     { id: 10, submit: "333ft", name: "Feet" },
-//     { id: 11, submit: "333mbf", name: "Multi BLD" },
-//     { id: 12, submit: "333mbo", name: "Multi BLD Old Style" },
-//     { id: 13, submit: "333oh", name: "One-Handed" },
-//     { id: 14, submit: "444bf", name: "4BLD" },
-//     { id: 15, submit: "555bf", name: "5BLD" },
-//     { id: 16, submit: "clock", name: "Rubiks Clock" },
-//     { id: 17, submit: "magic", name: "Rubiks Magic" },
-//     { id: 18, submit: "minx", name: "Megaminx" },
-//     { id: 19, submit: "mmagic", name: "Master Magic" },
-//     { id: 20, submit: "pyram", name: "Pyraminx" },
-//     { id: 21, submit: "skewb", name: "Skewb" },
-//     { id: 22, submit: "sq1", name: "Square-1" }
-// ]
+const options = [
+    { value: "333", label: "3x3" },
+    { value: "222", label: "2x2" },
+    { value: "333", label: "3x3" },
+    { value: "444", label: "4x4" },
+    { value: "555", label: "5x5" },
+    { value: "666", label: "6x6" },
+    { value: "777", label: "7x7" },
+    { value: "333bf", label: "3BLD" },
+    { value: "333fm", label: "Fewest Moves" },
+    { value: "333ft", label: "Feet" },
+    { value: "333mbf", label: "Multi BLD" },
+    { value: "333mbo", label: "Multi BLD Old Style" },
+    { value: "333oh", label: "One-Handed" },
+    { value: "444bf", label: "4BLD" },
+    { value: "555bf", label: "5BLD" },
+    { value: "clock", label: "Rubiks Clock" },
+    { value: "magic", label: "Rubiks Magic" },
+    { value: "minx", label: "Megaminx" },
+    { value: "mmagic", label: "Master Magic" },
+    { value: "pyram", label: "Pyraminx" },
+    { value: "skewb", label: "Skewb" },
+    { value: "sq1", label: "Square-1" },
+    { value: "", label: "Unofficial" }
+]
 
 const EventForm = ({ placeholder, userData, eventData, setData }: any) => {
-    // const [val, setVal] = useState(eventoptions[0])
     const [val, setVal] = useState('')
+    const [visible, setVisible] = useState(false)
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        console.log(val, placeholder, userData.username)
-        await axios.post("api/users/records/event/create", { eventName: val, username: userData.username })
-        .then(res => location.reload())
+    const {control} = useForm();
+
+    const onSubmit = (data: any) => console.log(data)
+
+    const selectStyles = {
+        option: (provided: any, { isFocused }: any) => ({ // the options in the dropdown
+            ...provided,
+            color: "black",
+            backgroundColor: isFocused ? "#999999" : null,
+        }),
+        singleValue: (provided: any, state: any) => ({ // active value
+            ...provided,
+            color: "grey"
+        }),
+        control: (provided: any) => ({ // main
+            ...provided,
+            border: "none",
+            backgroundColor: "transparent",
+            borderColor: "red",
+            width: 200,
+        })
     }
+    
+    return visible ? 
+        <>
+            <div className="flex flex-col items-center justify-center border-[4px] border-white h-[300px] w-[300px] rounded-xl">
+                <form onSubmit={onSubmit} className="flex flex-col items-center">
+                    <Controller
+                        control={control}
+                        name="addEvent"
+                        render={({ field: { onChange, value, name, ref } }) => (
+                            <Select options={options} styles={selectStyles}/>
+                        )}
+                    />
+                    <input type="submit" className="bg-transparent"/>
+                </form>
+            </div>
+            <div onClick={(() => setVisible(false))} className="cursor-pointer">
+                Temp disable
+            </div>
+        </> 
+        :
+        <>
+            <div onClick={(() => setVisible(true))} className="cursor-pointer">
+                [+ Add Event]
+            </div>
+        </>
+    
 
-    const updateData = () => {
-        // let neweventdata = eventData
-        // let temp = {
-        //     eventName: val,
-        //     username: userData.username,
-        //     wca: true
-        // }
-        // neweventdata[val] = temp
-        // setData(neweventdata)
-    }
 
-    return  <form onSubmit={handleSubmit}>
-                <input
-                type="text"
-                value={val}
-                onChange={e => setVal(e.target.value)}
-                placeholder={placeholder}>
-                </input>
-            </form>
-    // return  <Listbox value={val} onChange={setVal}>
-    //             <Listbox.Button>{val}</Listbox.Button>
-    //             <Listbox.Options>
-    //                 {eventoptions.map(event => {
-    //                     // <Listbox.Option key={event.id} value={event.submit}>
-    //                     //     {event.name}
-    //                     // </Listbox.Option>
-    //                     {event}
-    //                 })}
-    //             </Listbox.Options>
-    //         </Listbox>
+    // const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    //     e.preventDefault()
+    //     console.log(val, placeholder, userData.username)
+    //     await axios.post("api/users/records/event/create", { eventName: val, username: userData.username })
+    //     .then(res => location.reload())
+    // }
+
+
+    // return  <form onSubmit={handleSubmit}>
+    //             <input
+    //             type="text"
+    //             value={val}
+    //             onChange={e => setVal(e.target.value)}
+    //             placeholder={placeholder}>
+    //             </input>
+    //         </form>
 
 }
 export default EventForm
