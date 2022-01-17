@@ -13,19 +13,19 @@ const options = [
     { value: "777", label: "7x7" },
     { value: "333bf", label: "3x3 Blindfolded" },
     { value: "333fm", label: "3x3 Fewest Moves" },
-    { value: "333ft", label: "Rubiks Cube with Feet" },
     { value: "333mbf", label: "3x3 Multi Blind" },
-    { value: "333mbo", label: "3x3 Multi Blind Old-Style" },
     { value: "333oh", label: "3x3 One-Handed" },
     { value: "444bf", label: "4x4 Blindfolded" },
     { value: "555bf", label: "5x5 Blindfolded" },
     { value: "clock", label: "Rubiks Clock" },
-    { value: "magic", label: "Rubiks Magic" },
     { value: "minx", label: "Megaminx" },
-    { value: "mmagic", label: "Master Magic" },
     { value: "pyram", label: "Pyraminx" },
     { value: "skewb", label: "Skewb" },
     { value: "sq1", label: "Square-1" },
+    { value: "333ft", label: "Rubiks Cube with Feet" },
+    { value: "magic", label: "Rubiks Magic" },
+    { value: "mmagic", label: "Master Magic" },
+    { value: "333mbo", label: "3x3 Multi Blind Old-Style" },
     // { value: "", label: "Unofficial" }
 ]
 
