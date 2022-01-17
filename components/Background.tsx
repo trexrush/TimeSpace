@@ -10,7 +10,7 @@ import _777 from '../assets/svg/cubing-icons/event/777.svg'
 import _333bf from '../assets/svg/cubing-icons/event/333bf.svg'
 import _sq1 from '../assets/svg/cubing-icons/event/sq1.svg'
 import _minx from '../assets/svg/cubing-icons/event/minx.svg'
-import _pyra from '../assets/svg/cubing-icons/evenpyra.svg'
+import _pyra from '../assets/svg/cubing-icons/event/pyram.svg'
 import _skewb from '../assets/svg/cubing-icons/event/skewb.svg'
 import _clock from '../assets/svg/cubing-icons/event/clock.svg'
 
@@ -26,9 +26,9 @@ const Background: React.FC = (props: any) => {
                 <EventImage {..._333}/>
                 <EventImage {..._222}/>
                 <EventImage {..._444}/>
-                <EventImage {..._555}/>
+                <EventImage {..._skewb}/>
                 <EventImage {..._666}/>
-                <EventImage {..._777}/>
+                <EventImage {..._pyra}/>
                 <EventImage {..._sq1}/>
                 
                 {/* <Image src={_444} alt="444" className='filter-bg-icon absolute' width={rand(175, 400)}/>
