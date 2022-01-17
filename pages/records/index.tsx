@@ -75,7 +75,7 @@ const Records: NextPage = () => {
                         )}
                     </div>
                     <div className="flex flex-col items-center">
-                        <EventForm placeholder="[+NewEvent]" userData={userData} eventData={eventData} setData={setData}/>
+                        <EventForm userData={userData} eventData={eventData} setData={setData}/>
                     </div>
                 </>
             )}
