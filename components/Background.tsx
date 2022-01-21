@@ -35,7 +35,12 @@ const Background: React.FC = (props: any) => {
 
 const EventImage: React.FC = (src: any) => {
     return  <div className='absolute select-none' style={{left: `${rand(1,100)}%`, top: `${rand(1,70)}%`,}}>
-                <Image src={src} alt="background event logo" className='filter-bg-icon absolute' width={rand(175, 400)}/>
+                <Image 
+                    src={src} alt="background event logo" 
+                    className='filter-bg-icon absolute' 
+                    width={rand(175, 400)}
+                    draggable={false}
+                />
             </div>
 }
 

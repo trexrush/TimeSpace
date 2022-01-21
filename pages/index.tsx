@@ -8,7 +8,6 @@ import MenuButton from '../components/MenuButton'
 import LoginButton from '../components/LoginButton'
 import NameForm from '../components/Forms/NameForm'
 import { useSession } from 'next-auth/react'
-import SheetDataForm from '../components/Forms/SheetDataForm'
 import Framework from '../components/Framework'
 import Profile from '../components/Profile'
 
@@ -62,7 +61,7 @@ const Home: NextPage = () => {
           </div>
         }
         <div className='mt-48 select-none md:mt-10'>
-          <Image src={TimeSpace} alt='logo' height={200} width={500}/>
+          <Image src={TimeSpace} alt='logo' height={200} width={500} draggable={false}/>
         </div>
 
         {session ? 

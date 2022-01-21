@@ -52,7 +52,7 @@ const Records: NextPage = () => {
                 <>
                     <div className="flex flex-row justify-evenly items-center cursor-pointer">
                         <Link href="/" passHref>
-                            <Image src={Logo} alt="home button" height={70} width={70}/>
+                            <Image src={Logo} alt="home button" height={70} width={70} draggable={false}/>
                         </Link>
                         {/* spacers, ill fix this later maybe hopefully */}
                         <div></div>
