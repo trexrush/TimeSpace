@@ -10,6 +10,7 @@ import NameForm from '../components/Forms/NameForm'
 import { useSession } from 'next-auth/react'
 import SheetDataForm from '../components/Forms/SheetDataForm'
 import Framework from '../components/Framework'
+import Profile from '../components/Profile'
 
 // export const getServerSideProps = async () => {
 //   const prisma = new PrismaClient()
@@ -28,8 +29,8 @@ import Framework from '../components/Framework'
 const Home: NextPage = () => {
   const [userData, setUserData] = useState<any>()
   const { data: session } = useSession()
-  const [click, setClick] = useState<Boolean>(false)
-  const [profileFocus, setProfileFocus] = useState<Boolean>(false)
+  const [ click, setClick ] = useState<Boolean>(false)
+
 
   const discord = useRef(null)
 
@@ -54,19 +55,7 @@ const Home: NextPage = () => {
       <Framework center>
         {/* avatar component session */}
         {session && userData?.username ?
-          <div className='m-5 absolute top-0 left-0'>
-            <div className=' bg-gray-400 h-12 w-12 rounded-full cursor-pointer grid place-items-center text-3xl hover:border-white hover:border-2' onClick={() => setProfileFocus(!profileFocus)}>
-              <div className='select-none'>
-                {userData?.username[0].toUpperCase()}
-              </div>
-            </div>
-            {profileFocus &&
-              <div className='flex flex-col justify-start'> 
-                <SheetDataForm data={userData}/>
-                <LoginButton session={session}/>
-              </div>
-            }
-          </div>
+          <Profile userData={userData} session={session}/>
           :
           <div className='m-5 absolute top-0 left-0'>
             <LoginButton session={session}/>
