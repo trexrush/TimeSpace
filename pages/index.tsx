@@ -6,9 +6,9 @@ import Link from 'next/link'
 import TimeSpace from '../assets/svg/Logo White v2.svg'
 import MenuButton from '../components/MenuButton'
 import LoginButton from '../components/LoginButton'
-import NameForm from '../components/NameForm'
+import NameForm from '../components/Forms/NameForm'
 import { useSession } from 'next-auth/react'
-import SheetDataForm from '../components/SheetDataForm'
+import SheetDataForm from '../components/Forms/SheetDataForm'
 import Framework from '../components/Framework'
 
 // export const getServerSideProps = async () => {

@@ -1,33 +1,12 @@
 import axios from "axios"
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useForm, Controller } from "react-hook-form"
 import Select from "react-select"
+import eventName from "../eventName"
 
-const options = [
-    { value: "333", label: "3x3" },
-    { value: "222", label: "2x2" },
-    { value: "333", label: "3x3" },
-    { value: "444", label: "4x4" },
-    { value: "555", label: "5x5" },
-    { value: "666", label: "6x6" },
-    { value: "777", label: "7x7" },
-    { value: "333bf", label: "3x3 Blindfolded" },
-    { value: "333fm", label: "3x3 Fewest Moves" },
-    { value: "333mbf", label: "3x3 Multi Blind" },
-    { value: "333oh", label: "3x3 One-Handed" },
-    { value: "444bf", label: "4x4 Blindfolded" },
-    { value: "555bf", label: "5x5 Blindfolded" },
-    { value: "clock", label: "Rubiks Clock" },
-    { value: "minx", label: "Megaminx" },
-    { value: "pyram", label: "Pyraminx" },
-    { value: "skewb", label: "Skewb" },
-    { value: "sq1", label: "Square-1" },
-    { value: "333ft", label: "Rubiks Cube with Feet" },
-    { value: "magic", label: "Rubiks Magic" },
-    { value: "mmagic", label: "Master Magic" },
-    { value: "333mbo", label: "3x3 Multi Blind Old-Style" },
-    // { value: "", label: "Unofficial" }
-]
+const options = Object.entries(eventName).map((key) => {
+    return { value: key[0], label: key[1] }
+})
 
 const EventForm = ({ userData, eventData, setData }: any) => {
     const [visible, setVisible] = useState(false)

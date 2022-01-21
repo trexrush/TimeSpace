@@ -1,4 +1,4 @@
-import EventForm from "./EventForm"
+import EventForm from "./Forms/EventForm"
 import eventName from "./eventName"
 import Record from "./Record"
 import "@cubing/icons"

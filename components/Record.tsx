@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useState } from "react"
-import TimeForm from "./TimeForm"
+import TimeForm from "./Forms/TimeForm"
 
 const Record = ({ name, eventname, time, userData, type }: any) => {
 
