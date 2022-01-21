@@ -1,7 +1,7 @@
 import axios from "axios"
 import React, { useState } from "react"
 
-const TimeForm = ({ placeholder, userData, type, eventname }: any) => {
+const TimeForm = ({ placeholder, userData, type, eventname, format }: any) => {
     const [val, setVal] = useState('')
     const [placeholderState, setPlaceholderState] = useState(placeholder)
 
@@ -21,7 +21,7 @@ const TimeForm = ({ placeholder, userData, type, eventname }: any) => {
     return  <form onSubmit={handleSubmit} onBlur={handleSubmit} className="inline w-auto absolute m-0">
                     <input
                     className="cursor-pointer p-2 bg-transparent focus:bg-[rgba(255,255,255,.1)] decoration-[rgba(255,255,255,.5)] rounded-lg hover:underline outline-none w-[120px] text-2xl h-7"
-                    type="text"
+                    type="number"
                     value={val}
                     onChange={e => setVal(e.target.value)}
                     placeholder={placeholderState ? placeholderState : "none"}>

@@ -54,6 +54,7 @@ const Home: NextPage = () => {
       <Framework center>
         {/* avatar component session */}
         {session && userData?.username ?
+        //@ts-ignore
           <Profile userData={userData} session={session}/>
           :
           <div className='m-5 absolute top-0 left-0'>
