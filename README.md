@@ -8,3 +8,5 @@ Often people track their Rubik's Cube (and other related puzzles) records in a s
 It also can connect to your WCA profile so everything is in one place.
 
 TimeSpace is built with Nextjs, written in Typescript, with React and Tailwind on the frontend, and Prisma ORM connecting to an AWS deployed Prostgres DB, and Next's RESTful api routes on the backend.
+
+EDIT 2023-3-31: The Database for Timespace has been taken down and this app no longer works. I may or may not revisit this service in the future using a simpler (and less expensive) DB host.
